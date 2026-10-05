@@ -330,25 +330,34 @@ section { position: relative; overflow: clip; }
   background: inherit;
 }
 
-/* Figma 2:212 (updated): 501 wide, 8px gaps. Every box is WLLNSS tume with a
-   1px WLLNSS hele outline and hele text. */
-.stats__row { display: flex; gap: 8px; width: 501px; color: var(--c-hele); }
+/* Figma 2:212 (3rd version): 517 wide. No outlines: the three stats are split
+   by 1px WLLNSS hele vertical lines (8px either side), and a full-width hele
+   line separates them from "1 WLLNSS". Row has 16px bottom padding. */
+.stats__row { display: flex; gap: 16px; width: 517px; padding-bottom: 16px; color: var(--c-hele); }
 
 .stat {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 12px;
   padding: 16px 24px;
-  box-shadow: inset 0 0 0 1px var(--c-hele);   /* inside stroke: box stays 79px tall like Figma */
   white-space: nowrap;
 }
+.stat + .stat::before {   /* Figma lines 3:2485 / 3:2486: centred in the 16px gap, full box height */
+  content: "";
+  position: absolute;
+  left: -8.5px;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: var(--c-hele);
+}
 
-/* 3:1851 — 501 x 68, label centred. Here Figma's stroke does add to the box (16 + 1). */
+/* 3:2482 line, 8px gap each side, then 3:1851: 517 x 66, label centred */
 .stats__big {
-  width: 501px;
+  width: 517px;
   margin-top: 8px;
-  padding: 16px 0;
-  border: 1px solid var(--c-hele);
+  padding: 24px 0 16px;
+  border-top: 1px solid var(--c-hele);
   text-align: center;
   font-family: var(--font-display);
   font-weight: 500;
