@@ -402,6 +402,11 @@ section { position: relative; overflow: clip; }
   scrollbar-width: none;
 }
 .slider__track::-webkit-scrollbar { display: none; }
+/* Mouse drag (main.js): grab cursor, and while dragging no snap, no smooth
+   scroll and no text selection, so the row follows the mouse 1:1 */
+.slider__track, .slider__track .ala { cursor: grab; }
+.slider__track.is-dragging { scroll-snap-type: none; scroll-behavior: auto; user-select: none; }
+.slider__track.is-dragging, .slider__track.is-dragging .ala { cursor: grabbing; }
 
 .ala {
   position: relative;

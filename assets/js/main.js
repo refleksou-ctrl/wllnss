@@ -112,6 +112,34 @@
     };
     prev.addEventListener("click", function () { go(-1); });
     next.addEventListener("click", function () { go(1); });
+
+    // Drag to scroll with the mouse (touch and trackpads already swipe natively).
+    // Snap is switched off while dragging; on release it snaps to the nearest card.
+    // A drag of more than 5px doesn't count as a click on the card underneath.
+    var drag = null, moved = false;
+    track.addEventListener("pointerdown", function (e) {
+      if (e.pointerType !== "mouse" || e.button !== 0) return;
+      e.preventDefault();   // otherwise the browser starts dragging the card link itself and cancels this
+      drag = { x: e.clientX, left: track.scrollLeft };
+      moved = false;
+    });
+    window.addEventListener("pointermove", function (e) {
+      if (!drag) return;
+      var dx = e.clientX - drag.x;
+      if (!moved && Math.abs(dx) < 5) return;
+      if (!moved) { moved = true; target = null; track.classList.add("is-dragging"); }
+      track.scrollLeft = drag.left - dx;
+    });
+    var endDrag = function () {
+      if (!drag) return;
+      drag = null;
+      track.classList.remove("is-dragging");
+    };
+    window.addEventListener("pointerup", endDrag);
+    window.addEventListener("pointercancel", endDrag);
+    track.addEventListener("click", function (e) {
+      if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+    }, true);
     track.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
     update();

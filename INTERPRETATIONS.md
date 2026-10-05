@@ -44,7 +44,7 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | What | What I did |
 |---|---|
 | Cards | 8: the 4 designed ones, then the same 4 again |
-| Behaviour | Starts as designed, overflowing right. Each arrow click moves one card; once moved, cards overflow left too. Swipe/trackpad works natively |
+| Behaviour | Starts as designed, overflowing right. Each arrow click moves one card; once moved, cards overflow left too. Swipe/trackpad works natively. Mouse users can drag the row (grab cursor); on release it settles on the nearest card, and a drag doesn't open the card under the mouse (Ken) |
 | Last position | Last card's right edge lines up under the arrows |
 
 ## Motion (no motion spec in the file)
