@@ -429,6 +429,7 @@ section { position: relative; overflow: clip; }
   overflow: hidden;
   scroll-snap-align: start;
   background: var(--c-lightgrey);
+  color: var(--c-black);   /* Figma: card text is always black, whatever the section colour */
 }
 
 /* Image crops copied from the Figma fills — same source files */
