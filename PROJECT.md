@@ -21,8 +21,8 @@
 - Anything the client has already pushed back on:
 
 ## Live preview
-- Repo:
-- URL:
+- Repo: https://github.com/refleksou-ctrl/wllnss (public)
+- URL: https://refleksou-ctrl.github.io/wllnss/
 
 ## Notes / decisions
 - Homepage only for the first review. Subpages come after approval.
