@@ -247,7 +247,7 @@ section { position: relative; overflow: clip; }
   position: absolute;
   left: -10px;
   top: 170px;
-  width: 421px;
+  width: var(--bar-w, 421px);   /* per heading in Figma: 421 intro, 386 Treeningud, 359 Rohkem */
   height: 40px;
   background: var(--c-orange);
 }
@@ -588,7 +588,7 @@ section { position: relative; overflow: clip; }
   .hero, .intro, .treeningud, .rohkem, .asukoht { height: auto; }
   .canvas { height: auto; }
 
-  .bar { left: 0; top: 78px; width: min(421px, 55%); }
+  .bar { left: 0; top: 78px; width: min(var(--bar-w, 421px), 55%); }
   .bar::before { display: none; }
 
   /* hero */
