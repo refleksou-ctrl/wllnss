@@ -56,6 +56,10 @@
 
   function show(el) {
     el.classList.add("is-visible");
+    // A heading bar starts at zero width, 10px off-screen (Figma x -10), so the
+    // observer never sees it on screens up to 1440. It wipes in with its heading.
+    var prev = el.previousElementSibling;
+    if (prev && prev.classList.contains("bar")) prev.classList.add("is-visible");
     if (!reduce) Array.prototype.forEach.call(el.querySelectorAll("[data-count-to]"), countUp);
   }
 
@@ -70,7 +74,9 @@
         io.unobserve(el);
       });
     }, { rootMargin: "0px 0px -10% 0px", threshold: 0.08 });
-    Array.prototype.forEach.call(reveals, function (el) { io.observe(el); });
+    Array.prototype.forEach.call(reveals, function (el) {
+      if (!el.classList.contains("bar")) io.observe(el);   // bars are shown by show(), above
+    });
   }
 
   /* --- card slider -------------------------------------------
