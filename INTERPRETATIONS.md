@@ -47,6 +47,18 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | Behaviour | Starts as designed, overflowing right. Each arrow click moves one card; once moved, cards overflow left too. Swipe/trackpad works natively. Mouse users can drag the row (grab cursor); on release it settles on the nearest card, and a drag doesn't open the card under the mouse (Ken) |
 | Last position | Last card's right edge lines up under the arrows |
 
+## Kõik treeningud page (treeningud.html, Figma 8:101)
+
+| What | What I did | Why |
+|---|---|---|
+| Filters MOVE / RESET / RECOVER / CONNECT | Built and **on**, but not in the current Figma frame (Ken removed them there). Switch: `data-filters="on"` → `"off"` on the `<body>` line of treeningud.html. Off = exactly the Figma frame | Ken likes them; a PM may not |
+| Filter look | Outlined white chips, active one filled WLLNSS hele with black text; hover = the 10% light overlay | From my earlier Figma version of this page |
+| Treatment categories | **Placeholders:** Pilates = MOVE + RECOVER, Reformer = MOVE, Jooga = RESET + RECOVER + CONNECT, Personaaltreening = MOVE | Real categories are a content decision |
+| Cards | Same as the homepage slider; cards 5–6 repeat 1–2, as in Figma. Links still `#` | Detail pages not built yet |
+| Filtering | Non-matching cards disappear, the rest close up and fade in | Not designed |
+| "Vaata kõiki" on the homepage | Now opens this page | — |
+| <1200px | Cards in as many columns as fit (min 300px); filters wrap | Not designed |
+
 ## Motion (no motion spec in the file)
 
 | What | What I did |

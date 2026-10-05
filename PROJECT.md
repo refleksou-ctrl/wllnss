@@ -12,7 +12,8 @@
 | File | Figma frame | Status |
 |------|-------------|--------|
 | index.html | WLLNSS 2:58 | built, matched at 1440 |
-| subpages | not designed yet | follow if homepage is approved |
+| treeningud.html | Kõik treeningud 8:101 | built; filters behind a switch |
+| detail page | Treening – detailvaade 6:35 | designed in Figma, not built |
 
 ## Client
 - Client name: Telliskivi TLN, WLLNSS wellness centre

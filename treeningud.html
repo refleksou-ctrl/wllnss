@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="et">
+<head>
+  <!-- @head -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#A0605A">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- /@head -->
+  <title>K&otilde;ik treeningud &ndash; WLLNSS</title>
+</head>
+<!--
+  FILTERS SWITCH: data-filters="on" shows the MOVE / RESET / RECOVER / CONNECT
+  filter row. Change it to "off" and the row disappears; the page is then
+  exactly the current Figma frame (8:101). Nothing else needs touching.
+-->
+<body data-filters="on">
+
+  <!-- @header -->
+  <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <!-- nool.svg (identical in this file and M-hoone), stroke -> currentColor -->
+    <symbol id="ic-nool" viewBox="0 0 22 22">
+      <path d="M0 11.0024H21.2067" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" fill="none"/>
+      <path d="M10.6033 0.367188L21.2637 11.0025L10.6033 21.6378" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" fill="none"/>
+    </symbol>
+  </svg>
+
+  <!-- Sticky header. Ticker and menu bar both stay at the top; the bar
+       gets its 90% light background as soon as the page scrolls.
+       Menu = main Telliskivi site menu, Figma "MENÜÜ EXPLORATION" 3:398:
+       transparent 3:605, open 3:815, scrolled + open 3:1035.
+       KOGUKOND is a main-site item and is left out on WLLNSS (Ken). -->
+  <header class="hdr" data-header>
+    <!-- Figma 2:59 — ticker-logo.svg is exactly one repeat period, so it tiles with no seam -->
+    <a class="ticker" href="index.html" aria-label="Telliskivi TLN WLLNSS — avaleht">
+      <span class="ticker__track"></span>
+    </a>
+
+    <div class="hdr__bar">
+      <nav class="lang" aria-label="Keel">
+        <a href="#" aria-current="true">EST</a>
+        <a href="#" lang="en">ENG</a>
+      </nav>
+
+
+      <div class="hdr__right">
+        <button class="hdr__menu-btn" data-burger aria-expanded="false" aria-controls="site-nav">
+          <span class="hdr__menu-label">Men&uuml;&uuml;</span>
+          <span class="hdr__burger" aria-hidden="true"><i></i><i></i><i></i></span>
+          <img class="hdr__close" src="assets/img/sulge.svg" alt="" width="24" height="18">
+        </button>
+      </div>
+    </div>
+
+    <!-- Open menu — 3:1027 (transparent, blur only) / 3:1247 (scrolled, 90% light) -->
+    <nav class="menu-drop" id="site-nav" data-nav>
+      <!-- Placeholders until the real WLLNSS menu list arrives (Ken) -->
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </nav>
+  </header>
+  <!-- /@header -->
+
+  <main>
+
+    <!-- KÕIK TREENINGUD — Figma 8:199 -->
+    <section class="koik">
+      <div class="canvas">
+        <span class="bar bar--orange" style="--bar-w: 386px" data-reveal aria-hidden="true"></span>
+        <h1 class="koik__title h1" data-reveal>K&otilde;ik treeningud</h1>
+        <p class="koik__intro" data-reveal data-reveal-delay="80">Vali, mida su keha t&auml;na vajab. K&otilde;iki treeninguid viivad l&auml;bi WLLNSS-i partnerid.</p>
+
+        <!-- Filters — categories are placeholders until real ones are agreed (see INTERPRETATIONS.md) -->
+        <div class="filtrid" role="group" aria-label="Filtreeri treeninguid" data-reveal data-reveal-delay="120">
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">K&Otilde;IK</button>
+          <button class="filter" type="button" data-filter="move" aria-pressed="false">MOVE</button>
+          <button class="filter" type="button" data-filter="reset" aria-pressed="false">RESET</button>
+          <button class="filter" type="button" data-filter="recover" aria-pressed="false">RECOVER</button>
+          <button class="filter" type="button" data-filter="connect" aria-pressed="false">CONNECT</button>
+        </div>
+
+        <!-- Cards 5–6 repeat 1–2, as in Figma -->
+        <div class="koik__grid" data-grid>
+          <a class="ala" href="#" data-cat="move recover">
+            <img class="ala__img ala__img--pilates" src="assets/img/pilates.webp" alt="" loading="lazy">
+            <span class="ala__body">
+              <span class="ala__title">Pilates</span>
+              <span class="nupp ala__nupp"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg>Vaata l&auml;hemalt</span>
+            </span>
+          </a>
+          <a class="ala" href="#" data-cat="move">
+            <img class="ala__img ala__img--reformer" src="assets/img/reformer.webp" alt="" loading="lazy">
+            <span class="ala__body">
+              <span class="ala__title">Reformer Pilates</span>
+              <span class="nupp ala__nupp"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg>Vaata l&auml;hemalt</span>
+            </span>
+          </a>
+          <a class="ala" href="#" data-cat="reset recover connect">
+            <img class="ala__img ala__img--yoga" src="assets/img/yoga.webp" alt="" loading="lazy">
+            <span class="ala__body">
+              <span class="ala__title">Jooga</span>
+              <span class="nupp ala__nupp"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg>Vaata l&auml;hemalt</span>
+            </span>
+          </a>
+          <a class="ala" href="#" data-cat="move">
+            <img class="ala__img ala__img--personaaltreening" src="assets/img/personaaltreening.webp" alt="" loading="lazy">
+            <span class="ala__body">
+              <span class="ala__title">Personaaltreening</span>
+              <span class="nupp ala__nupp"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg>Vaata l&auml;hemalt</span>
+            </span>
+          </a>
+          <a class="ala" href="#" data-cat="move recover">
+            <img class="ala__img ala__img--pilates" src="assets/img/pilates.webp" alt="" loading="lazy">
+            <span class="ala__body">
+              <span class="ala__title">Pilates</span>
+              <span class="nupp ala__nupp"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg>Vaata l&auml;hemalt</span>
+            </span>
+          </a>
+          <a class="ala" href="#" data-cat="move">
+            <img class="ala__img ala__img--reformer" src="assets/img/reformer.webp" alt="" loading="lazy">
+            <span class="ala__body">
+              <span class="ala__title">Reformer Pilates</span>
+              <span class="nupp ala__nupp"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg>Vaata l&auml;hemalt</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- @footer -->
+  <!-- Figma 2:298 -->
+  <footer class="ftr">
+    <div class="ftr__inner">
+      <p class="ftr__title">Too oma ettev&otilde;te<br>Telliskivisse!</p>
+
+      <nav class="ftr__nav" aria-label="Jaluse men&uuml;&uuml;">
+        <a href="#">ETTEV&Otilde;TTED</a>
+        <a href="#">MIS TOIMUB?</a>
+        <a href="#">KUIDAS TULLA?</a>
+        <a href="#">UUDISED</a>
+        <a href="#">TELLISKIVIST</a>
+        <a href="#">VABAD PINNAD</a>
+        <a href="#">KONTAKT</a>
+      </nav>
+
+      <div class="ftr__info">
+        <p>Telliskivi<br>TLN O&Uuml;</p>
+        <p><a href="tel:+3725166109">+372 51 66 109</a><br><a href="mailto:info@telliskivitln.ee">info@telliskivitln.ee</a></p>
+        <p>Telliskivi 60/2, 10412 Tallinn<br>I1-hoone, A-sissep&auml;&auml;s, 4. korrus</p>
+        <img class="ftr__logo" src="assets/img/footer-logo.svg" alt="Telliskivi TLN" width="250" height="32">
+      </div>
+    </div>
+  </footer>
+  <!-- /@footer -->
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

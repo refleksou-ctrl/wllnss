@@ -595,6 +595,67 @@ section { position: relative; overflow: clip; }
 .ftr a:hover { color: var(--c-white); }
 
 /* ============================================================
+   PAGE: treeningud.html — KÕIK TREENINGUD (Figma 8:199)
+   Flows top to bottom instead of absolute positions; the spacing is
+   Figma's: title y188, intro 63 below it at x261, grid 64 below that.
+   ============================================================ */
+
+.koik {
+  position: relative;
+  background: var(--c-tume);
+  color: var(--c-white);
+}
+.koik .canvas { padding: 188px 0 188px 144px; }   /* bottom: grid end -> footer is 188 in Figma */
+
+/* Figma 9:134 — full-width 1px WLLNSS hele line where the section meets the footer */
+.koik::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: var(--c-hele);
+}
+
+.koik__title { position: relative; }   /* sits above the absolutely positioned bar, as on the homepage */
+
+.koik__intro {
+  width: 393px;
+  margin: 63px 0 0 117px;   /* x261 = 144 + 117 */
+  text-box: trim-both cap alphabetic;
+}
+
+/* --- filters (switch: body[data-filters="on"|"off"]) ------------
+   Chip: 15/20 padding, 1px outline, Menüü 18px label; 45px tall as in Figma.
+   Active = WLLNSS hele fill + black label (same as the hele Nupp_small). */
+.filtrid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 64px; }
+body:not([data-filters="on"]) .filtrid { display: none; }
+
+.filter {
+  padding: 15px 20px;
+  border: 1px solid var(--c-white);
+  background: transparent;
+  color: var(--c-white);
+  font-family: var(--font-body);
+  font-size: var(--fs-menu);
+  line-height: 13px;   /* cap-height box, so the chip is 15 + 13 + 15 + 2 = 45px */
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.filter:hover { background: var(--c-btn-hover); }
+.filter[aria-pressed="true"] { background: var(--c-hele); border-color: var(--c-hele); color: var(--c-black); }
+.filter:focus-visible { outline: 2px solid var(--c-orange); outline-offset: 2px; }
+
+/* --- grid: the homepage cards, 3 x 392 with 16px gaps (8:237) --- */
+.koik__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 392px);
+  gap: 16px;
+  margin-top: 64px;
+}
+.koik__grid .ala { animation: ala-in var(--dur-slow) var(--ease); }
+@keyframes ala-in { from { opacity: 0; transform: translateY(12px); } }
+
+/* ============================================================
    REVEAL
    ============================================================ */
 
@@ -702,6 +763,12 @@ section { position: relative; overflow: clip; }
   .asukoht__content { gap: 40px; }
   .asukoht__title { white-space: normal; }
 
+  /* kõik treeningud */
+  .koik .canvas { padding: 96px var(--gutter) 96px; }
+  .koik__intro { width: auto; max-width: 393px; margin-left: min(117px, 10vw); }
+  .koik__grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  .koik__grid .ala { width: auto; }
+
   /* footer */
   .ftr__inner { height: auto; grid-template-columns: 1fr; grid-template-rows: auto; padding: 24px var(--gutter) 32px; gap: 48px; }
   .ftr__title, .ftr__nav, .ftr__info { grid-column: 1; grid-row: auto; padding: 0; }
@@ -718,4 +785,5 @@ section { position: relative; overflow: clip; }
   .ala { width: 300px; height: 360px; padding: 32px 24px 24px; }
   .rohkem .canvas { grid-template-columns: 1fr; gap: 48px; }
   .ftr__title { white-space: normal; }
+  .koik__grid .ala { width: auto; height: 400px; }
 }

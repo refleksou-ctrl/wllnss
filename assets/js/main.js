@@ -79,6 +79,24 @@
     });
   }
 
+  /* --- treatment filters (treeningud.html) --------------------
+     Only runs when <body data-filters="on">. A card shows when its
+     data-cat list contains the chosen filter; "all" shows everything. */
+  var grid = document.querySelector("[data-grid]");
+  if (grid && document.body.getAttribute("data-filters") === "on") {
+    var buttons = document.querySelectorAll("[data-filter]");
+    Array.prototype.forEach.call(buttons, function (btn) {
+      btn.addEventListener("click", function () {
+        var f = btn.getAttribute("data-filter");
+        Array.prototype.forEach.call(buttons, function (b) { b.setAttribute("aria-pressed", String(b === btn)); });
+        Array.prototype.forEach.call(grid.children, function (card) {
+          var cats = (card.getAttribute("data-cat") || "").split(" ");
+          card.hidden = f !== "all" && cats.indexOf(f) === -1;
+        });
+      });
+    });
+  }
+
   /* --- card slider -------------------------------------------
      The track is a native horizontal scroller (so trackpad and touch
      swipe just work); the arrows scroll it by one card. Arrows dim at
