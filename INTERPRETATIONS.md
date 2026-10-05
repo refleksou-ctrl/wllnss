@@ -30,7 +30,7 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | What | What I did | Why |
 |---|---|---|
 | When the bar gets its background | As soon as the page scrolls at all (Ken). Fades in over 250ms | Figma shows the scrolled state, not the moment it switches |
-| Sticky | Ticker scrolls away, bar sticks to the top | Ken |
+| Sticky | Ticker and menu bar both stay at the top while scrolling | Ken |
 | Dropdown position | 12px under the bar; starts 32px left of the "Menüü" label, width = links + 32px each side | Measured on the live main site, telliskivitln.ee/hub (Ken) |
 | Dropdown spacing | 32px gap measured from cap height to baseline, like Figma (rows 44px apart) | From the file |
 | Dropdown link hover | Orange + underline wipe | M-hoone hover |

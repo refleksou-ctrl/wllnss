@@ -53,9 +53,9 @@ section { position: relative; overflow: clip; }
    HEADER — ticker (2:59) + transparent bar over the hero (2:178)
    ============================================================ */
 
-/* Sticky: the header box is only the ticker; it sticks at -ticker height,
-   so the ticker scrolls away and the bar (hanging below it) stays at the top. */
-.hdr { position: sticky; top: calc(-1 * var(--ticker-h)); z-index: 50; height: var(--ticker-h); }
+/* Sticky: ticker + the menu bar hanging below it both stay at the top (Ken).
+   The header box is only the ticker's height, so the bar still overlays the hero. */
+.hdr { position: sticky; top: 0; z-index: 50; height: var(--ticker-h); }
 
 .ticker {
   --tile: calc(var(--ticker-h) * 11.0099);   /* ticker-logo.svg is 1275.27 x 115.83 */
