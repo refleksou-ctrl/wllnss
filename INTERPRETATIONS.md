@@ -31,12 +31,12 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 |---|---|---|
 | When the bar gets its background | As soon as the page scrolls at all (Ken). Fades in over 250ms | Figma shows the scrolled state, not the moment it switches |
 | Sticky | Ticker and menu bar both stay at the top while scrolling | Ken |
-| Dropdown position | 12px under the bar; starts 32px left of the "Menüü" label, width = links + 32px each side | Measured on the live main site, telliskivitln.ee/hub (Ken) |
+| Dropdown position | 12px under the bar; starts 32px left of the "Menüü" label, width = links + 32px each side; if the links are too long to fit, the panel shifts left just enough to end at the screen edge | Measured on the live main site, telliskivitln.ee/hub (Ken) |
 | Dropdown spacing | 32px gap measured from cap height to baseline, like Figma (rows 44px apart) | From the file |
 | Dropdown link hover | Orange + underline wipe | M-hoone hover |
 | KOGUKOND button | Removed | Main-site item, not part of WLLNSS (Ken) |
 | Main-site centre links (Vabad pinnad, M-hoone, HUB, WLLNSS) | Removed | Hidden leftovers in the WLLNSS file (Ken) |
-| Dropdown contents | Three placeholders, "Link 1–3" | Ken: the main site's six links don't belong here; real list to come |
+| Dropdown contents | "Kõik treeningud" (→ treeningud.html, orange on that page) + placeholders "Link 2–3" | Ken: the main site's six links don't belong here; real list to come |
 | Hidden exploration frames 3:399, 3:1255, 3:1462 | Ignored | Earlier versions (all links in the bar, "UUS M-hoone" tag) |
 
 ## Slider (agreed with Ken)

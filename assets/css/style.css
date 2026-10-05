@@ -137,7 +137,7 @@ section { position: relative; overflow: clip; }
   transform-origin: right;
   transition: transform var(--dur) var(--ease-out);
 }
-.menu-drop a:hover { color: var(--c-orange); }
+.menu-drop a:hover, .menu-drop a[aria-current="page"] { color: var(--c-orange); }
 .menu-drop a:hover::after { transform: scaleX(1); transform-origin: left; }
 
 .hdr__right { display: flex; align-items: center; gap: 24px; }
@@ -183,6 +183,10 @@ section { position: relative; overflow: clip; }
   top: calc(var(--ticker-h) + 48px + 12px);
   left: calc(100% - 24px - 90px - 32px);
   width: max-content;
+  /* Links wider than the 146px left of the screen edge would run off it, so the
+     panel shifts left by exactly the overflow (translate % = the panel's own
+     width). Short links: no shift, text stays in line with "Menüü". */
+  --dx: min(0px, calc(146px - 100%));
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -192,11 +196,11 @@ section { position: relative; overflow: clip; }
   -webkit-backdrop-filter: blur(10px);
   color: var(--c-white);
   opacity: 0;
-  transform: translateY(-8px);
+  transform: translate(var(--dx), -8px);
   pointer-events: none;
   transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease), background var(--dur) var(--ease), color var(--dur) var(--ease);
 }
-.menu-drop.is-open { opacity: 1; transform: none; pointer-events: auto; }
+.menu-drop.is-open { opacity: 1; transform: translate(var(--dx), 0); pointer-events: auto; }
 .hdr.is-scrolled .menu-drop { background: rgba(245, 245, 244, 0.9); color: var(--c-black); }
 
 /* ============================================================
