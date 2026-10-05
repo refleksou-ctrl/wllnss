@@ -1,0 +1,66 @@
+/* ============================================================
+   tokens.css — Telliskivi WLLNSS
+   Values taken from Figma variables (file ndmYXBrFegu0M5ydwKj9HE).
+   Do not invent values here.
+   ============================================================ */
+
+/* Fonts: same licensed files as Telliskivi M-hoone. */
+@font-face {
+  font-family: "Atlas Grotesk";
+  src: url("../fonts/AtlasGrotesk-Regular-Web.woff") format("woff"),
+       url("../fonts/AtlasGrotesk-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stolzl";
+  src: url("../fonts/StolzlMedium/font.woff2") format("woff2"),
+       url("../fonts/StolzlMedium/font.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* --- colour (Figma variables) ---------------------------- */
+  --c-orange:      #FC4C02;   /* Telliskivi ORANŽ */
+  --c-hele:        #E69F77;   /* WLLNSS hele */
+  --c-tume:        #A0605A;   /* WLLNSS tume */
+
+  --c-black:       #000000;
+  --c-white:       #FFFFFF;
+  --c-lightgrey:   #F0F0F0;   /* Helehall — hero bg in this file, button hover in M-hoone Tükid */
+
+  /* Hovers borrowed from Telliskivi M (Tükid 1:66082). See INTERPRETATIONS.md */
+  --c-orange-hover: #E74219;  /* "oranži hover" */
+  --c-hele-hover:   #D9906A;  /* hele darkened by the same step as oranž -> oranži hover */
+  --c-btn-hover:    rgba(240, 240, 240, 0.1);  /* Helehall at 10%, Ken 2026-10-05 */
+
+  /* --- type (Figma text styles, verbatim) ------------------ */
+  --font-body:    "Atlas Grotesk", system-ui, -apple-system, sans-serif;
+  --font-display: "Stolzl", system-ui, -apple-system, sans-serif;
+
+  --fs-h1: 48px;  --lh-h1: 1.1;    /* H1 — Stolzl Medium */
+  --fs-h2: 32px;  --lh-h2: 1.1;    /* H2 — Stolzl Medium */
+  --fs-stat: 34px; --lh-stat: 38px; /* stat numbers, not a style in the file */
+  --fs-menu: 18px; --lh-menu: 24px; /* Menüü — button labels */
+  --fs-b1: 16px;  --lh-b1: 1.4;
+  --fs-b2: 14px;  --lh-b2: 1.2;
+
+  /* --- layout ---------------------------------------------- */
+  --container: 1440px;
+  --gutter: 144px;     /* Figma content inset on 1440 */
+  --ticker-h: 48px;
+
+  /* --- motion ---------------------------------------------- */
+  --ease:     cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 150ms;
+  --dur:      250ms;
+  --dur-slow: 450ms;
+}
+
+@media (max-width: 1199px) { :root { --gutter: 48px; } }
+@media (max-width: 700px)  { :root { --gutter: 20px; --fs-h1: 32px; --fs-h2: 24px; --fs-stat: 28px; --lh-stat: 32px; --ticker-h: 32px; } }

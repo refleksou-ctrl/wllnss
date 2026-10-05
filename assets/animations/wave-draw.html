@@ -1,0 +1,48 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Animation — orange wave draws on scroll</title>
+<!--
+  The orange line across "Rohkem kui treening" (Figma 2:288, laine.svg).
+  Used on: index.html, .rohkem section.
+
+  pathLength="1" normalises the path, so the dash trick needs no measuring:
+  dasharray 1, offset -1 (hidden) -> 0 (drawn). Starting at -1 rather than 1
+  makes it draw from the path's end, which after the designed 180deg
+  rotation is the LEFT side, so it reads left to right.
+  Figma box: 2816 x 672.43 at x -814, y 272 of a 1440 frame; the SVG is
+  677.43 tall because of the 5px stroke, hence top 269.5.
+
+  Open this file directly to preview (scroll down). Copy the block to reuse.
+-->
+<style>
+  .wv-stage { position: relative; height: 1205px; overflow: hidden; background: #8a6a55; }
+  .wv {
+    position: absolute; left: -814px; top: 269.5px;
+    width: 2816px; height: 677.432px; max-width: none;
+    transform: rotate(180deg);
+    fill: none; stroke: #FC4C02; stroke-width: 5;
+  }
+  .wv path { stroke-dasharray: 1; stroke-dashoffset: -1; transition: stroke-dashoffset 2400ms cubic-bezier(0.22, 0.61, 0.36, 1); }
+  .wv.is-visible path { stroke-dashoffset: 0; }
+  @media (prefers-reduced-motion: reduce) { .wv path { stroke-dashoffset: 0; transition: none; } }
+
+  body { margin: 0; }
+  .spacer { height: 100vh; display: grid; place-items: center; font: 16px system-ui; }
+</style>
+
+<div class="spacer">Scroll down</div>
+<div class="wv-stage">
+  <svg class="wv" viewBox="0 0 2817.18 677.432" preserveAspectRatio="none" aria-hidden="true">
+    <path pathLength="1" d="M0.929414 582C214.429 667.5 423.429 686.771 606.429 668.771C789.429 650.771 944.929 435.271 1053.43 194.771C1144.65 -7.4229 1258.17 -57.6655 1189.43 244.771C1102.16 628.771 1160.93 795.771 1479.93 244.771C1646.65 -43.203 1804.93 -99.2289 1769.43 212.271C1733.93 523.771 1844.43 697.771 2086.93 610.771C2303.43 534.5 2527.43 406 2816.93 376.5"/>
+  </svg>
+</div>
+
+<script>
+  (function () {
+    var el = document.querySelector(".wv");
+    if (!("IntersectionObserver" in window)) { el.classList.add("is-visible"); return; }
+    new IntersectionObserver(function (entries, io) {
+      if (entries[0].isIntersecting) { el.classList.add("is-visible"); io.disconnect(); }
+    }, { threshold: 0.15 }).observe(el);
+  })();
+</script>

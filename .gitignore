@@ -1,0 +1,5 @@
+.DS_Store
+*.fig
+_figma-export/
+_source/
+.claude/

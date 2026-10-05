@@ -1,0 +1,655 @@
+/* ============================================================
+   Telliskivi WLLNSS — prototype styles
+   Layout values are the Figma numbers at 1440px (frame 2:58).
+   Below 1200px the layout is an adaptation, not designed.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html { scroll-behavior: smooth; overflow-x: hidden; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-b1);
+  line-height: var(--lh-b1);
+  color: var(--c-black);
+  background: var(--c-white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+p, h1, h2 { margin: 0; font-weight: 400; }
+button { font: inherit; }
+
+/* Figma trims every text box to cap-height / baseline, and all its y
+   positions are measured that way. text-box does the same in CSS, so the
+   numbers below can be copied verbatim. (Chrome 133+, Safari 18.2+;
+   Firefox ignores it and text sits a few px lower.) */
+.h1, .hero__text, .intro__text, .stats__title, .stat__num, .stat__label,
+.ala__title, .viis__title, .viis__text, .asukoht__title, .ftr__title, .ftr p, .ftr__nav a {
+  text-box: trim-both cap alphabetic;
+}
+
+.h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+}
+
+/* Fixed 1440 canvas: sections keep their background full-bleed and place
+   content on this, so absolute positions are the Figma numbers. */
+.canvas { position: relative; max-width: var(--container); margin-inline: auto; height: 100%; }
+
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+section { position: relative; overflow: clip; }
+
+/* ============================================================
+   HEADER — ticker (2:59) + transparent bar over the hero (2:178)
+   ============================================================ */
+
+.hdr { position: relative; z-index: 50; }
+
+.ticker {
+  --tile: calc(var(--ticker-h) * 11.0099);   /* ticker-logo.svg is 1275.27 x 115.83 */
+  display: block;
+  height: var(--ticker-h);
+  overflow: hidden;
+  background: var(--c-orange);
+}
+
+.ticker__track {
+  display: block;
+  height: 100%;
+  width: calc(100% + var(--tile));
+  background: url("../img/ticker-logo.svg") repeat-x left center;
+  background-size: var(--tile) var(--ticker-h);
+  animation: ticker-scroll 8.8s linear infinite;   /* ~60px/s, same as M-hoone */
+}
+
+@keyframes ticker-scroll {
+  to { transform: translate3d(calc(-1 * var(--tile)), 0, 0); }
+}
+
+.ticker:hover .ticker__track { animation-play-state: paused; }
+
+.hdr__bar {
+  position: absolute;
+  top: var(--ticker-h);
+  left: 0; right: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  color: var(--c-white);
+}
+
+.lang {
+  display: flex;
+  justify-content: space-between;
+  width: 94px;
+  font-size: var(--fs-b2);
+  line-height: var(--lh-b2);
+}
+.lang a { position: relative; transition: color var(--dur-fast) var(--ease); }
+.lang a:hover { color: var(--c-orange); }
+/* Figma 2:182 — 34x4 orange bar under the active language, flush with the bar's bottom */
+.lang a[aria-current]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 25px;
+  width: 34px;
+  height: 4px;
+  background: var(--c-orange);
+}
+
+.hdr__menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--c-white);
+  font-size: var(--fs-b1);
+  line-height: var(--lh-b1);
+  cursor: pointer;
+}
+.hdr__menu-label { transition: opacity var(--dur-fast) var(--ease); }
+.hdr__menu-btn:hover .hdr__menu-label { opacity: 0.75; }
+
+.hdr__burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 24px;
+  height: 24px;
+}
+.hdr__burger i {
+  display: block;
+  height: 2px;
+  background: var(--c-orange);
+  transition: background var(--dur) var(--ease);
+}
+.hdr__menu-btn[aria-expanded="true"] .hdr__burger i { background: var(--c-white); }
+
+/* Open menu — M-hoone pattern: blurred panel dropping below the bar */
+.menu-drop {
+  position: absolute;
+  top: calc(var(--ticker-h) + 48px);
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 24px 32px 24px 64px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--c-white);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.menu-drop.is-open { opacity: 1; transform: none; pointer-events: auto; }
+
+.menu-drop a {
+  position: relative;
+  font-size: var(--fs-b1);
+  line-height: var(--lh-b1);
+  white-space: nowrap;
+  transition: color var(--dur-fast) var(--ease);
+}
+.menu-drop a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -3px;
+  width: 100%; height: 1px;
+  background: var(--c-orange);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--dur) var(--ease-out);
+}
+.menu-drop a:hover, .menu-drop a[aria-current="page"] { color: var(--c-orange); }
+.menu-drop a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+/* ============================================================
+   BUTTONS — Nupp_small (2:162). Hovers from M-hoone Tükid 1:66082:
+   bg -> hover colour, arrow slides 4px toward the label.
+   ============================================================ */
+
+.nupp {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 0;
+  background: transparent;
+  color: var(--c-black);
+  font-family: var(--font-body);
+  font-size: var(--fs-menu);
+  line-height: 22px;   /* = arrow height, so the box is Figma's 54px */
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), opacity var(--dur) var(--ease);
+}
+.nupp__arrow { flex: none; width: 22px; height: 22px; transition: transform var(--dur) var(--ease-out); }
+
+.nupp:hover { background: var(--c-btn-hover); }
+.nupp:hover .nupp__arrow { transform: translateX(4px); }
+.nupp:focus-visible, .ala:focus-visible { outline: 2px solid var(--c-orange); outline-offset: 2px; }
+
+.nupp--hele { background: var(--c-hele); }
+.nupp--hele:hover { background: var(--c-hele-hover); }
+
+/* Round arrow buttons, carousel (2:265 / 2:269) */
+.nupp-round { gap: 0; }
+.nupp-round--back .nupp__arrow { transform: rotate(180deg); }
+.nupp-round--back:hover .nupp__arrow { transform: rotate(180deg) translateX(4px); }
+.nupp-round:disabled { opacity: 0.3; cursor: default; background: transparent; }
+.nupp-round:disabled .nupp__arrow { transform: none; }
+.nupp-round--back:disabled .nupp__arrow { transform: rotate(180deg); }
+
+/* ============================================================
+   HIGHLIGHT BARS — the 421x40 blocks behind section titles.
+   They bleed off the left edge in Figma (x -10), so on screens wider
+   than 1440 a pseudo element carries them to the viewport edge.
+   ============================================================ */
+
+.bar {
+  position: absolute;
+  left: -10px;
+  top: 170px;
+  width: 421px;
+  height: 40px;
+  background: var(--c-orange);
+}
+.bar::before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 0; bottom: 0;
+  width: 50vw;
+  background: inherit;
+}
+.bar--hele { background: var(--c-hele); }
+.bar--hero { left: 174px; top: 266px; width: 520px; }
+.bar--hero::before { display: none; }
+
+/* ============================================================
+   HERO (2:156) — 720 tall, starts under the ticker
+   ============================================================ */
+
+.hero { height: 720px; background: var(--c-lightgrey); color: var(--c-white); }
+
+.hero__img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-89.87deg, rgba(0, 0, 0, 0) 0%, rgba(72, 15, 12, 0.5) 99.944%);
+}
+.hero .canvas { z-index: 1; }
+
+.hero__title { position: absolute; left: 175px; top: 184px; white-space: nowrap; }
+.hero__text  { position: absolute; left: 175px; top: 335px; white-space: nowrap; }
+.hero__cta   { position: absolute; left: 175px; top: 405px; }
+
+.social { position: absolute; left: 24px; top: 184px; width: 24px; height: 170px; }
+.social a { position: absolute; left: 0; width: 24px; height: 24px; transition: opacity var(--dur-fast) var(--ease); }
+.social a:hover { box-shadow: 0 4px 0 -1px var(--c-orange); }
+
+/* ============================================================
+   INTRO (2:207)
+   ============================================================ */
+
+.intro { height: 612px; background: var(--c-white); }
+
+.intro__title { position: absolute; left: 144px; top: 188px; width: 597px; }
+.intro__text  { position: absolute; left: 261px; top: 337px; width: 393px; }
+
+.stats {
+  position: absolute;
+  right: 0;
+  top: 170px;
+  padding: 36px 40px 36px 24px;
+  background: var(--c-tume);
+}
+.stats::after {   /* carries the box to the viewport edge past 1440 */
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 0; bottom: 0;
+  width: 50vw;
+  background: inherit;
+}
+
+.stats__title {
+  width: 503px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  color: var(--c-hele);
+}
+
+.stats__row { display: flex; gap: 9px; margin-top: 40px; }
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 24px;
+  background: var(--c-hele);
+  white-space: nowrap;
+}
+.stat__num {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-stat);
+  line-height: var(--lh-stat);
+}
+.stat__num sup { font-size: 0.645em; line-height: 0; vertical-align: 0.6em; }  /* 21.93px in Figma */
+.stat__label { font-size: var(--fs-b2); line-height: var(--lh-b2); }
+
+/* ============================================================
+   TREENINGUD (2:224) — card slider
+   ============================================================ */
+
+.treeningud { height: 955px; background: var(--c-hele); }
+
+.treeningud > .canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.treeningud > .canvas > * { pointer-events: auto; }
+
+.treeningud__title { position: absolute; left: 144px; top: 188px; width: 597px; }
+.treeningud__all   { position: absolute; left: 1197px; top: 178px; }
+
+.slider { position: absolute; left: 0; right: 0; top: 326px; }
+
+/* Native horizontal scroll: trackpad and touch swipe for free. The
+   padding puts card 1 at Figma x144 and lets cards overflow right; once
+   scrolled they overflow left too. Past 1440 the inset grows with the
+   centred canvas so card 1 still lines up with the title. */
+.slider__track {
+  --edge: max(0px, (100% - var(--container)) / 2);
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-left: calc(var(--edge) + var(--gutter));
+  padding-right: calc(var(--edge) + 79px);     /* last card ends under the arrows */
+  scroll-padding-left: calc(var(--edge) + var(--gutter));
+  scrollbar-width: none;
+}
+.slider__track::-webkit-scrollbar { display: none; }
+
+.ala {
+  position: relative;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 392px;
+  height: 440px;
+  padding: 42px 32px 32px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background: var(--c-lightgrey);
+}
+
+/* Image crops copied from the Figma fills — same source files */
+.ala__img {
+  position: absolute;
+  max-width: none;
+  transition: transform 600ms var(--ease-out);
+}
+.ala__img--pilates  { width: 169.36%; height: 117.27%; left: -36.93%; top: -17.27%; }
+.ala__img--reformer { inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ala__img--yoga     { width: 133.79%; height: 109.09%; left: -21.15%; top: -9.09%; }
+.ala__img--personaaltreening { width: 130.73%; height: 114.15%; left: -15.46%; top: -14.15%; }
+.ala:hover .ala__img { transform: scale(1.03); }
+
+.ala__body { position: relative; display: flex; flex-direction: column; gap: 15px; }
+.ala__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+}
+.ala__nupp { width: 100%; }
+.ala:hover .ala__nupp { background: var(--c-btn-hover); }
+.ala:hover .ala__nupp .nupp__arrow { transform: translateX(4px); }
+
+.slider__nav { position: absolute; left: 1253px; top: 799px; display: flex; }
+
+/* ============================================================
+   ROHKEM KUI TREENING (2:273)
+   ============================================================ */
+
+.rohkem { height: 1205px; color: var(--c-white); isolation: isolate; }
+
+/* Figma crop: full width, 212.45% tall, top -100.89% => object-position 89.7% */
+.rohkem__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: 50% 89.7%;
+}
+.rohkem::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(230, 159, 119, 0.3), rgba(160, 96, 90, 0.3));
+  mix-blend-mode: multiply;
+}
+.rohkem .canvas { z-index: 1; }
+
+.rohkem__title { position: absolute; left: 144px; top: 188px; width: 597px; }
+
+.viis { position: absolute; width: 199px; display: flex; flex-direction: column; gap: 24px; }
+.viis--move    { left: 322px;  top: 337px; }
+.viis--reset   { left: 322px;  top: 537px; }
+.viis--recover { left: 1070px; top: 737px; }
+.viis--connect { left: 1070px; top: 937px; }
+.viis__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+}
+
+/* Figma 2:288 — 2816 x 672.43 box at -814,272, rotated 180deg.
+   The SVG is 677.43 tall (stroke overhang), so it sits 2.5px higher. */
+.laine {
+  position: absolute;
+  left: -814px;
+  top: 269.5px;
+  width: 2816px;
+  height: 677.432px;
+  max-width: none;
+  transform: rotate(180deg);
+  z-index: 1;
+  overflow: visible;
+  fill: none;
+  stroke: var(--c-orange);
+  stroke-width: 5;
+}
+.laine path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: -1;
+  transition: stroke-dashoffset 2400ms var(--ease);
+}
+.laine.is-visible path { stroke-dashoffset: 0; }
+
+/* ============================================================
+   ASUKOHT (2:289)
+   ============================================================ */
+
+.asukoht { height: 720px; color: var(--c-white); }
+
+.asukoht__img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; }
+.asukoht::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0) 46.332%, rgba(0, 0, 0, 0.2));
+}
+
+.asukoht__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container);
+  height: 100%;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 140px 140px 96px 96px;
+}
+.asukoht__content { display: flex; flex-direction: column; align-items: flex-start; gap: 56px; }
+.asukoht__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   FOOTER (2:298) — one WLLNSS tume block, 496 | 944 columns
+   ============================================================ */
+
+.ftr { background: var(--c-tume); color: var(--c-hele); }
+
+.ftr__inner {
+  max-width: var(--container);
+  height: 320px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 496px 1fr;
+  grid-template-rows: 110px 210px;
+}
+
+.ftr__title {
+  padding: 24px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  white-space: nowrap;
+}
+
+.ftr__nav, .ftr__info {
+  grid-column: 2;
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+  font-size: var(--fs-b2);
+  line-height: var(--lh-b2);
+  white-space: nowrap;
+}
+.ftr__nav { align-items: flex-start; }
+.ftr__info { grid-row: 2; align-items: flex-end; }
+.ftr__logo { width: 250px; height: 32px; }
+
+.ftr a { transition: color var(--dur-fast) var(--ease); }
+.ftr a:hover { color: var(--c-white); }
+
+/* ============================================================
+   REVEAL
+   ============================================================ */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease);
+}
+[data-reveal].is-visible { opacity: 1; transform: none; }
+
+/* Bars wipe in from the left instead of rising */
+.bar[data-reveal] { opacity: 1; transform: scaleX(0); transform-origin: left; transition: transform 700ms var(--ease-out); }
+.bar[data-reveal].is-visible { transform: none; }
+
+/* The wave draws itself; it doesn't fade or move */
+.laine[data-reveal] { opacity: 1; transform: rotate(180deg); transition: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [data-reveal], .bar[data-reveal] { opacity: 1; transform: none; transition: none; }
+  .laine path { stroke-dashoffset: 0; transition: none; }
+  .ticker__track { animation: none; }
+  .slider__track { scroll-behavior: auto; }
+}
+
+/* ============================================================
+   RESPONSIVE — below 1200px is an adaptation, NOT designed
+   ============================================================ */
+
+@media (max-width: 1199px) {
+  /* Sections flow instead of using the 1440 canvas */
+  .hero, .intro, .treeningud, .rohkem, .asukoht { height: auto; }
+  .canvas { height: auto; }
+
+  .bar { left: 0; top: 78px; width: min(421px, 55%); }
+  .bar::before { display: none; }
+
+  /* hero */
+  .hero .canvas {
+    min-height: 640px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 96px var(--gutter);
+  }
+  .hero__title, .hero__text, .hero__cta { position: relative; left: auto; top: auto; white-space: normal; }
+  .hero__title { display: inline-block; font-size: min(var(--fs-h1), 7.6vw); }
+  .hero__text { margin-top: 48px; }
+  .hero__cta { margin-top: 48px; }
+  .bar--hero { display: none; }
+  .hero__title::after {   /* stands in for the hero bar: same place relative to line 2 */
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -1px; right: 0;
+    bottom: -0.75em;
+    height: 0.83em;
+    background: var(--c-orange);
+  }
+  .social { display: none; }
+
+  /* intro */
+  .intro .canvas { padding: 96px 0 96px var(--gutter); }
+  .intro__title, .intro__text, .stats { position: relative; left: auto; top: auto; right: auto; }
+  .intro__title { width: auto; max-width: 597px; padding-right: var(--gutter); }
+  .intro__text { width: auto; max-width: 393px; margin: 40px 0 0 min(117px, 10vw); padding-right: var(--gutter); }
+  .stats { margin-top: 64px; }
+  .stats::after { display: none; }
+  .stats__title { width: auto; }
+  .stats__row { flex-wrap: wrap; }
+
+  /* treeningud */
+  .treeningud { padding-bottom: 64px; }
+  .treeningud > .canvas { position: relative; inset: auto; padding-inline: var(--gutter); }
+  .treeningud > .canvas:first-child { padding-top: 96px; }
+  .treeningud__title, .treeningud__all, .slider, .slider__nav { position: relative; left: auto; top: auto; right: auto; }
+  .treeningud__title { width: auto; }
+  .treeningud__all { margin: 24px 0 0 -16px; }
+  .slider { margin-top: 48px; }
+  .slider__track { padding-right: var(--gutter); }
+  .slider__nav { justify-content: flex-end; margin-top: 24px; }
+
+  /* rohkem */
+  .rohkem .canvas {
+    padding: 96px var(--gutter);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px 32px;
+  }
+  .rohkem__title, .viis { position: relative; left: auto; top: auto; }
+  .rohkem__title { grid-column: 1 / -1; width: auto; }
+  .viis { width: auto; }
+  .laine, .laine[data-reveal] { left: calc(50% - 1534px); top: 140px; z-index: 0; opacity: 0.6; }
+  .rohkem__title, .viis { z-index: 1; }
+
+  /* asukoht */
+  .asukoht::after { background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0) 70%); }
+  .asukoht__inner { min-height: 560px; align-items: flex-start; justify-content: flex-end; padding: 96px var(--gutter); }
+  .asukoht__content { gap: 40px; }
+  .asukoht__title { white-space: normal; }
+
+  /* footer */
+  .ftr__inner { height: auto; grid-template-columns: 1fr; grid-template-rows: auto; padding: 24px var(--gutter) 32px; gap: 48px; }
+  .ftr__title, .ftr__nav, .ftr__info { grid-column: 1; grid-row: auto; padding: 0; }
+  .ftr__nav { flex-wrap: wrap; justify-content: flex-start; gap: 20px 32px; }
+  .ftr__info { flex-wrap: wrap; justify-content: flex-start; align-items: flex-end; gap: 24px 48px; }
+}
+
+@media (max-width: 700px) {
+  .ticker__track { animation-duration: 5.9s; }
+  .hero .canvas { min-height: 560px; }
+  .hero__img { object-position: 70% center; }
+  .stats { padding: 28px var(--gutter) 28px 20px; width: 100%; }
+  .stat { padding: 14px 16px; }
+  .ala { width: 300px; height: 360px; padding: 32px 24px 24px; }
+  .rohkem .canvas { grid-template-columns: 1fr; gap: 48px; }
+  .ftr__title { white-space: normal; }
+}

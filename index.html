@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="et">
+<head>
+  <!-- @head -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#A0605A">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- /@head -->
+  <title>WLLNSS &ndash; Telliskivi</title>
+</head>
+<body>
+
+  <!-- @header -->
+  <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <!-- nool.svg (identical in this file and M-hoone), stroke -> currentColor -->
+    <symbol id="ic-nool" viewBox="0 0 22 22">
+      <path d="M0 11.0024H21.2067" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" fill="none"/>
+      <path d="M10.6033 0.367188L21.2637 11.0025L10.6033 21.6378" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" fill="none"/>
+    </symbol>
+  </svg>
+
+  <header class="hdr">
+    <!-- Figma 2:59 — ticker-logo.svg is exactly one repeat period, so it tiles with no seam -->
+    <a class="ticker" href="index.html" aria-label="Telliskivi TLN WLLNSS — avaleht">
+      <span class="ticker__track"></span>
+    </a>
+
+    <!-- Figma 2:178 — transparent bar over the hero -->
+    <div class="hdr__bar">
+      <nav class="lang" aria-label="Keel">
+        <a href="#" aria-current="true">EST</a>
+        <a href="#" lang="en">ENG</a>
+      </nav>
+
+      <button class="hdr__menu-btn" data-burger aria-expanded="false" aria-controls="site-nav">
+        <span class="hdr__menu-label">Men&uuml;&uuml;</span>
+        <span class="hdr__burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+    </div>
+
+    <!-- Open menu: M-hoone pattern (Figma M-hoone 1:399). Links are the hidden
+         menu items in this file (2:183); real list still to come, so all # -->
+    <nav class="menu-drop" id="site-nav" data-nav>
+      <a href="index.html" data-page="index" aria-current="page">WLLNSS</a>
+      <a href="#">HUB</a>
+      <a href="#">M-hoone</a>
+      <a href="#">Vabad pinnad</a>
+    </nav>
+  </header>
+  <!-- /@header -->
+
+  <main>
+
+    <!-- HERO — Figma 2:156 -->
+    <section class="hero">
+      <img class="hero__img" src="assets/img/WLLNSS_2.webp" alt="" fetchpriority="high">
+      <div class="canvas">
+        <span class="bar bar--hero" data-reveal aria-hidden="true"></span>
+        <h1 class="hero__title h1" data-reveal>WLLNSS - Heaolu uus<br>aadress Telliskivis.</h1>
+        <p class="hero__text" data-reveal data-reveal-delay="80">Liikumine, treening, taastumine ja heaolu &uuml;he katuse all.</p>
+        <a class="nupp nupp--hele hero__cta" href="#treeningud" data-reveal data-reveal-delay="160"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg>Avasta treeninguid</a>
+
+        <!-- Figma 2:201 — one exported SVG; links sit over each icon -->
+        <div class="social">
+          <img src="assets/img/social.svg" alt="" width="24" height="170">
+          <a href="#" aria-label="Instagram" style="top:0"></a>
+          <a href="#" aria-label="Facebook" style="top:48px"></a>
+          <a href="#" aria-label="LinkedIn" style="top:96px"></a>
+          <a href="#" aria-label="TikTok" style="top:144px;height:26px"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO — Figma 2:207 -->
+    <section class="intro">
+      <div class="canvas">
+        <span class="bar bar--hele" data-reveal aria-hidden="true"></span>
+        <h2 class="intro__title h1" data-reveal>&Uuml;ks koht. Mitu viisi, kuidas end h&auml;sti tunda.</h2>
+        <p class="intro__text" data-reveal data-reveal-delay="80">WLLNSS ei ole spordiklubi v&otilde;i &uuml;ksik treeningstuudio. Keskuses tegutsevad erinevad partnerid, kelle teenuseid &uuml;hendab &uuml;ks keskkond ja &uuml;hine heaolu kontseptsioon.</p>
+
+        <div class="stats" data-reveal data-reveal-delay="120">
+          <p class="stats__title">1 WLLNSS</p>
+          <div class="stats__row">
+            <div class="stat"><p class="stat__num"><span data-count-to="700">700</span>+ m<sup>2</sup></p><p class="stat__label">heaolu</p></div>
+            <div class="stat"><p class="stat__num"><span data-count-to="10">10</span>+</p><p class="stat__label">treeningut ja teenust</p></div>
+            <div class="stat"><p class="stat__num"><span data-count-to="5">5</span></p><p class="stat__label">partnerit</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TREENINGUD — Figma 2:224. Cards 5–8 are duplicates of 1–4 until real content arrives -->
+    <section class="treeningud" id="treeningud">
+      <div class="canvas">
+        <span class="bar bar--orange" data-reveal aria-hidden="true"></span>
+        <h2 class="treeningud__title h1" data-reveal>Leia oma WLLNSS</h2>
+        <a class="nupp treeningud__all" href="#" data-reveal data-reveal-delay="80"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg>Vaata k&otilde;iki</a>
+      </div>
+
+      <div class="slider" data-slider>
+        <div class="slider__track" data-slider-track>
+          <a class="ala" href="#">
+            <img class="ala__img ala__img--pilates" src="assets/img/pilates.webp" alt="" loading="lazy">
+            <span class="ala__body">
+              <span class="ala__title">Pilates</span>
+              <span class="nupp ala__nupp"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg>Vaata l&auml;hemalt</span>
+            </span>
+          </a>
+          <a class="ala" href="#">
+            <img class="ala__img ala__img--reformer" src="assets/img/reformer.webp" alt="" loading="lazy">
+            <span class="ala__body">
+              <span class="ala__title">Reformer Pilates</span>
+              <span class="nupp ala__nupp"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg>Vaata l&auml;hemalt</span>
+            </span>
+          </a>
+          <a class="ala" href="#">
+            <img class="ala__img ala__img--yoga" src="assets/img/yoga.webp" alt="" loading="lazy">
+            <span class="ala__body">
+              <span class="ala__title">Jooga</span>
+              <span class="nupp ala__nupp"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg>Vaata l&auml;hemalt</span>
+            </span>
+          </a>
+          <a class="ala" href="#">
+            <img class="ala__img ala__img--personaaltreening" src="assets/img/personaaltreening.webp" alt="" loading="lazy">
+            <span class="ala__body">
+              <span class="ala__title">Personaaltreening</span>
+              <span class="nupp ala__nupp"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg>Vaata l&auml;hemalt</span>
+            </span>
+          </a>
+          <a class="ala" href="#">
+            <img class="ala__img ala__img--pilates" src="assets/img/pilates.webp" alt="" loading="lazy">
+            <span class="ala__body">
+              <span class="ala__title">Pilates</span>
+              <span class="nupp ala__nupp"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg>Vaata l&auml;hemalt</span>
+            </span>
+          </a>
+          <a class="ala" href="#">
+            <img class="ala__img ala__img--reformer" src="assets/img/reformer.webp" alt="" loading="lazy">
+            <span class="ala__body">
+              <span class="ala__title">Reformer Pilates</span>
+              <span class="nupp ala__nupp"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg>Vaata l&auml;hemalt</span>
+            </span>
+          </a>
+          <a class="ala" href="#">
+            <img class="ala__img ala__img--yoga" src="assets/img/yoga.webp" alt="" loading="lazy">
+            <span class="ala__body">
+              <span class="ala__title">Jooga</span>
+              <span class="nupp ala__nupp"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg>Vaata l&auml;hemalt</span>
+            </span>
+          </a>
+          <a class="ala" href="#">
+            <img class="ala__img ala__img--personaaltreening" src="assets/img/personaaltreening.webp" alt="" loading="lazy">
+            <span class="ala__body">
+              <span class="ala__title">Personaaltreening</span>
+              <span class="nupp ala__nupp"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg>Vaata l&auml;hemalt</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="canvas">
+        <div class="slider__nav">
+          <button class="nupp nupp-round nupp-round--back" type="button" data-slider-prev aria-label="Eelmised"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg></button>
+          <button class="nupp nupp-round" type="button" data-slider-next aria-label="J&auml;rgmised"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROHKEM KUI TREENING — Figma 2:273 -->
+    <section class="rohkem">
+      <img class="rohkem__img" src="assets/img/emotsioon.webp" alt="" loading="lazy">
+      <div class="canvas">
+        <!-- Figma 2:288 — laine.svg, inlined so it can draw itself on.
+             Designed rotated 180deg; transform kept rather than re-plotting the path. -->
+        <svg class="laine" data-reveal viewBox="0 0 2817.18 677.432" preserveAspectRatio="none" aria-hidden="true">
+          <path pathLength="1" d="M0.929414 582C214.429 667.5 423.429 686.771 606.429 668.771C789.429 650.771 944.929 435.271 1053.43 194.771C1144.65 -7.4229 1258.17 -57.6655 1189.43 244.771C1102.16 628.771 1160.93 795.771 1479.93 244.771C1646.65 -43.203 1804.93 -99.2289 1769.43 212.271C1733.93 523.771 1844.43 697.771 2086.93 610.771C2303.43 534.5 2527.43 406 2816.93 376.5"/>
+        </svg>
+
+        <span class="bar bar--orange" data-reveal aria-hidden="true"></span>
+        <h2 class="rohkem__title h1" data-reveal>Rohkem kui treening.</h2>
+
+        <div class="viis viis--move" data-reveal><p class="viis__title">MOVE</p><p class="viis__text">Liikumine, j&otilde;ud<br>ja energia.</p></div>
+        <div class="viis viis--reset" data-reveal><p class="viis__title">RESET</p><p class="viis__text">Aeg iseendale<br>ja tasakaalule.</p></div>
+        <div class="viis viis--recover" data-reveal><p class="viis__title">RECOVER</p><p class="viis__text">Taastumine ja keha<br>eest hoolitsemine.</p></div>
+        <div class="viis viis--connect" data-reveal><p class="viis__title">CONNECT</p><p class="viis__text">Inimesed, kogukond<br>ja kohtumised.</p></div>
+      </div>
+    </section>
+
+    <!-- ASUKOHT — Figma 2:289 -->
+    <section class="asukoht">
+      <img class="asukoht__img" src="assets/img/asukoht.jpg" alt="" loading="lazy">
+      <div class="asukoht__inner">
+        <div class="asukoht__content">
+        <p class="asukoht__title" data-reveal>WLLNSS Telliskivi TLN&rsquo;is,<br>Telliskivi 60/1, 1.korrus</p>
+        <a class="nupp nupp--hele" href="https://www.google.com/maps/search/?api=1&amp;query=Telliskivi+60%2F1%2C+Tallinn" target="_blank" rel="noopener" data-reveal data-reveal-delay="80"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg>VAATA ASUKOHTA KAARDIL</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- @footer -->
+  <!-- Figma 2:298 -->
+  <footer class="ftr">
+    <div class="ftr__inner">
+      <p class="ftr__title">Too oma ettev&otilde;te<br>Telliskivisse!</p>
+
+      <nav class="ftr__nav" aria-label="Jaluse men&uuml;&uuml;">
+        <a href="#">ETTEV&Otilde;TTED</a>
+        <a href="#">MIS TOIMUB?</a>
+        <a href="#">KUIDAS TULLA?</a>
+        <a href="#">UUDISED</a>
+        <a href="#">TELLISKIVIST</a>
+        <a href="#">VABAD PINNAD</a>
+        <a href="#">KONTAKT</a>
+      </nav>
+
+      <div class="ftr__info">
+        <p>Telliskivi<br>TLN O&Uuml;</p>
+        <p><a href="tel:+3725166109">+372 51 66 109</a><br><a href="mailto:info@telliskivitln.ee">info@telliskivitln.ee</a></p>
+        <p>Telliskivi 60/2, 10412 Tallinn<br>I1-hoone, A-sissep&auml;&auml;s, 4. korrus</p>
+        <img class="ftr__logo" src="assets/img/footer-logo.svg" alt="Telliskivi TLN" width="250" height="32">
+      </div>
+    </div>
+  </footer>
+  <!-- /@footer -->
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

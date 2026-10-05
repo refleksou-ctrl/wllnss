@@ -1,0 +1,41 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Animation — TELLISKIVI / WLLNSS header ticker</title>
+<!--
+  TELLISKIVI TLN | WLLNSS marquee, top of every page (Figma 2:59).
+  Used on: every page, partials/header.html (.ticker).
+
+  ../img/ticker-logo.svg is exactly one repeat period (1275.27 x 115.83),
+  so repeat-x tiles it with no seam. The track is one tile wider than the
+  viewport and moves by exactly one tile: composited, nothing repaints.
+  Tile width follows the height (x 11.0099), so only --tk-h needs changing.
+
+  Open this file directly to preview. Copy the block to reuse.
+-->
+<style>
+  .tk-ticker {
+    --tk-h: 48px;
+    --tk-tile: calc(var(--tk-h) * 11.0099);
+    height: var(--tk-h);
+    overflow: hidden;
+    background: #FC4C02;
+  }
+  .tk-ticker__track {
+    height: 100%;
+    width: calc(100% + var(--tk-tile));
+    background: url("../img/ticker-logo.svg") repeat-x left center;
+    background-size: var(--tk-tile) var(--tk-h);
+    animation: tk-scroll 8.8s linear infinite;   /* ~60px/sec */
+  }
+  .tk-ticker:hover .tk-ticker__track { animation-play-state: paused; }
+
+  @keyframes tk-scroll { to { transform: translate3d(calc(-1 * var(--tk-tile)), 0, 0); } }
+
+  @media (prefers-reduced-motion: reduce) { .tk-ticker__track { animation: none; } }
+
+  body { margin: 0; padding: 40px 0; background: #2E2E2E; }
+</style>
+
+<div class="tk-ticker" aria-hidden="true">
+  <div class="tk-ticker__track"></div>
+</div>
