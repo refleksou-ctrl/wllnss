@@ -29,6 +29,14 @@
     });
   }
 
+  /* --- sticky bar: light background as soon as the page scrolls - */
+  var header = document.querySelector("[data-header]");
+  if (header) {
+    var onScroll = function () { header.classList.toggle("is-scrolled", window.scrollY > 0); };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
   /* --- count-up on the stat numbers -------------------------- */
   function countUp(el) {
     var target = parseFloat(el.getAttribute("data-count-to"));

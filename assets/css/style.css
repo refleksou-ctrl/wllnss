@@ -7,7 +7,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
 
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: clip; }   /* clip, not hidden: hidden breaks position: sticky */
 
 body {
   margin: 0;
@@ -17,7 +17,7 @@ body {
   color: var(--c-black);
   background: var(--c-white);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img, svg { display: block; max-width: 100%; }
@@ -29,7 +29,7 @@ button { font: inherit; }
    positions are measured that way. text-box does the same in CSS, so the
    numbers below can be copied verbatim. (Chrome 133+, Safari 18.2+;
    Firefox ignores it and text sits a few px lower.) */
-.h1, .hero__text, .intro__text, .stats__title, .stat__num, .stat__label,
+.h1, .menu-drop a, .hero__text, .intro__text, .stats__title, .stat__num, .stat__label,
 .ala__title, .viis__title, .viis__text, .asukoht__title, .ftr__title, .ftr p, .ftr__nav a {
   text-box: trim-both cap alphabetic;
 }
@@ -53,7 +53,9 @@ section { position: relative; overflow: clip; }
    HEADER — ticker (2:59) + transparent bar over the hero (2:178)
    ============================================================ */
 
-.hdr { position: relative; z-index: 50; }
+/* Sticky: the header box is only the ticker; it sticks at -ticker height,
+   so the ticker scrolls away and the bar (hanging below it) stays at the top. */
+.hdr { position: sticky; top: calc(-1 * var(--ticker-h)); z-index: 50; height: var(--ticker-h); }
 
 .ticker {
   --tile: calc(var(--ticker-h) * 11.0099);   /* ticker-logo.svg is 1275.27 x 115.83 */
@@ -69,7 +71,7 @@ section { position: relative; overflow: clip; }
   width: calc(100% + var(--tile));
   background: url("../img/ticker-logo.svg") repeat-x left center;
   background-size: var(--tile) var(--ticker-h);
-  animation: ticker-scroll 8.8s linear infinite;   /* ~60px/s, same as M-hoone */
+  animation: ticker-scroll 8.07s linear infinite;   /* 484px tile at ~60px/s, same speed as M-hoone */
 }
 
 @keyframes ticker-scroll {
@@ -78,6 +80,9 @@ section { position: relative; overflow: clip; }
 
 .ticker:hover .ticker__track { animation-play-state: paused; }
 
+/* --- menu bar (Figma 3:951 / 3:1171) ------------------------
+   Language left, Menüü right. The main site's centre links are hidden
+   in the WLLNSS file (2:183), so they are left out. */
 .hdr__bar {
   position: absolute;
   top: var(--ticker-h);
@@ -88,7 +93,11 @@ section { position: relative; overflow: clip; }
   justify-content: space-between;
   padding: 0 24px;
   color: var(--c-white);
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
 }
+
+/* Scrolled (3:1171): Figma bg rgba(245,245,244,0.9), black text */
+.hdr.is-scrolled .hdr__bar { background: rgba(245, 245, 244, 0.9); color: var(--c-black); }
 
 .lang {
   display: flex;
@@ -99,7 +108,7 @@ section { position: relative; overflow: clip; }
 }
 .lang a { position: relative; transition: color var(--dur-fast) var(--ease); }
 .lang a:hover { color: var(--c-orange); }
-/* Figma 2:182 — 34x4 orange bar under the active language, flush with the bar's bottom */
+/* 34x4 orange bar under the active language, flush with the bar's bottom */
 .lang a[aria-current]::after {
   content: "";
   position: absolute;
@@ -110,57 +119,7 @@ section { position: relative; overflow: clip; }
   background: var(--c-orange);
 }
 
-.hdr__menu-btn {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0;
-  border: 0;
-  background: none;
-  color: var(--c-white);
-  font-size: var(--fs-b1);
-  line-height: var(--lh-b1);
-  cursor: pointer;
-}
-.hdr__menu-label { transition: opacity var(--dur-fast) var(--ease); }
-.hdr__menu-btn:hover .hdr__menu-label { opacity: 0.75; }
-
-.hdr__burger {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-  width: 24px;
-  height: 24px;
-}
-.hdr__burger i {
-  display: block;
-  height: 2px;
-  background: var(--c-orange);
-  transition: background var(--dur) var(--ease);
-}
-.hdr__menu-btn[aria-expanded="true"] .hdr__burger i { background: var(--c-white); }
-
-/* Open menu — M-hoone pattern: blurred panel dropping below the bar */
-.menu-drop {
-  position: absolute;
-  top: calc(var(--ticker-h) + 48px);
-  right: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  padding: 24px 32px 24px 64px;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: var(--c-white);
-  opacity: 0;
-  transform: translateY(-8px);
-  pointer-events: none;
-  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
-}
-.menu-drop.is-open { opacity: 1; transform: none; pointer-events: auto; }
-
+/* Dropdown links — M-hoone link hover */
 .menu-drop a {
   position: relative;
   font-size: var(--fs-b1);
@@ -178,8 +137,68 @@ section { position: relative; overflow: clip; }
   transform-origin: right;
   transition: transform var(--dur) var(--ease-out);
 }
-.menu-drop a:hover, .menu-drop a[aria-current="page"] { color: var(--c-orange); }
+.menu-drop a:hover { color: var(--c-orange); }
 .menu-drop a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+.hdr__right { display: flex; align-items: center; gap: 24px; }
+
+.hdr__menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-size: var(--fs-b1);
+  line-height: var(--lh-b1);
+  cursor: pointer;
+}
+.hdr__menu-label { transition: opacity var(--dur-fast) var(--ease); }
+.hdr__menu-btn:hover .hdr__menu-label { opacity: 0.75; }
+
+.hdr__burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 24px;
+  height: 24px;
+}
+.hdr__burger i { display: block; height: 2px; background: var(--c-orange); }
+
+/* Open state: burger swaps for the designed X (3:974, 24x18) */
+.hdr__close { display: none; width: 24px; height: 18px; }
+.hdr__menu-btn[aria-expanded="true"] .hdr__burger { display: none; }
+.hdr__menu-btn[aria-expanded="true"] .hdr__close { display: block; }
+
+/* --- open menu (3:1027 / 3:1247) ------------------------------
+   12px under the bar. As on the main site, the link text lines up with
+   the "Menüü" label: label starts 24 + 90 (label + X) from the right edge,
+   panel has 32px left padding. Without KOGUKOND that leaves no room for
+   the designed right padding, so the panel runs to the screen edge.
+   Over the hero it is blur only with white text; once scrolled it takes
+   the bar's 90% light. */
+.menu-drop {
+  position: absolute;
+  top: calc(var(--ticker-h) + 48px + 12px);
+  left: calc(100% - 24px - 90px - 32px);
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 24px 0 24px 32px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--c-white);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease), background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.menu-drop.is-open { opacity: 1; transform: none; pointer-events: auto; }
+.hdr.is-scrolled .menu-drop { background: rgba(245, 245, 244, 0.9); color: var(--c-black); }
 
 /* ============================================================
    BUTTONS — Nupp_small (2:162). Hovers from M-hoone Tükid 1:66082:
@@ -263,9 +282,10 @@ section { position: relative; overflow: clip; }
 .hero__text  { position: absolute; left: 175px; top: 335px; white-space: nowrap; }
 .hero__cta   { position: absolute; left: 175px; top: 405px; }
 
-.social { position: absolute; left: 24px; top: 184px; width: 24px; height: 170px; }
-.social a { position: absolute; left: 0; width: 24px; height: 24px; transition: opacity var(--dur-fast) var(--ease); }
-.social a:hover { box-shadow: 0 4px 0 -1px var(--c-orange); }
+.social { position: absolute; z-index: 1; left: 24px; top: 184px; width: 24px; height: 170px; }
+.social { color: var(--c-white); overflow: visible; }
+.social a { transition: color var(--dur-fast) var(--ease); }
+.social a:hover { color: var(--c-lightgrey); }   /* Helehall, the button-hover grey (Ken) */
 
 /* ============================================================
    INTRO (2:207)
@@ -594,7 +614,7 @@ section { position: relative; overflow: clip; }
     height: 0.83em;
     background: var(--c-orange);
   }
-  .social { display: none; }
+  .hero .canvas { padding-left: 96px; }   /* clears the social icons */
 
   /* intro */
   .intro .canvas { padding: 96px 0 96px var(--gutter); }
@@ -644,9 +664,10 @@ section { position: relative; overflow: clip; }
 }
 
 @media (max-width: 700px) {
-  .ticker__track { animation-duration: 5.9s; }
   .hero .canvas { min-height: 560px; }
   .hero__img { object-position: 70% center; }
+  .hero .canvas { padding-left: var(--gutter); }
+  .social { display: none; }   /* no room beside the text on phones */
   .stats { padding: 28px var(--gutter) 28px 20px; width: 100%; }
   .stat { padding: 14px 16px; }
   .ala { width: 300px; height: 360px; padding: 32px 24px 24px; }

@@ -52,7 +52,7 @@
   /* --- layout ---------------------------------------------- */
   --container: 1440px;
   --gutter: 144px;     /* Figma content inset on 1440 */
-  --ticker-h: 48px;
+  --ticker-h: 44px;   /* live Telliskivi sites use 44 (Ken); Figma frame has 48 */
 
   /* --- motion ---------------------------------------------- */
   --ease:     cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -63,4 +63,4 @@
 }
 
 @media (max-width: 1199px) { :root { --gutter: 48px; } }
-@media (max-width: 700px)  { :root { --gutter: 20px; --fs-h1: 32px; --fs-h2: 24px; --fs-stat: 28px; --lh-stat: 32px; --ticker-h: 32px; } }
+@media (max-width: 700px)  { :root { --gutter: 20px; --fs-h1: 32px; --fs-h2: 24px; --fs-stat: 28px; --lh-stat: 32px; } }
