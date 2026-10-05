@@ -370,7 +370,7 @@ section { position: relative; overflow: clip; }
    TREENINGUD (2:224) — card slider
    ============================================================ */
 
-.treeningud { height: 955px; background: var(--c-hele); }
+.treeningud { height: 955px; background: var(--c-tume); }   /* Figma 2:224, recoloured by Ken: tume bg, white title, hele links */
 
 .treeningud > .canvas {
   position: absolute;
@@ -379,8 +379,8 @@ section { position: relative; overflow: clip; }
 }
 .treeningud > .canvas > * { pointer-events: auto; }
 
-.treeningud__title { position: absolute; left: 144px; top: 188px; width: 597px; }
-.treeningud__all   { position: absolute; left: 1197px; top: 178px; }
+.treeningud__title { position: absolute; left: 144px; top: 188px; width: 597px; color: var(--c-white); }
+.treeningud__all   { position: absolute; left: 1197px; top: 178px; color: var(--c-hele); }
 
 .slider { position: absolute; left: 0; right: 0; top: 326px; }
 
@@ -441,6 +441,7 @@ section { position: relative; overflow: clip; }
 .ala:hover .ala__nupp .nupp__arrow { transform: translateX(4px); }
 
 .slider__nav { position: absolute; left: 1253px; top: 799px; display: flex; }
+.slider__nav .nupp { color: var(--c-hele); }
 
 /* ============================================================
    ROHKEM KUI TREENING (2:273)
