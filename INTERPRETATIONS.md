@@ -31,7 +31,7 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 |---|---|---|
 | When the bar gets its background | As soon as the page scrolls at all (Ken). Fades in over 250ms | Figma shows the scrolled state, not the moment it switches |
 | Sticky | Ticker scrolls away, bar sticks to the top | Ken |
-| Dropdown position | 12px under the bar; link text lines up with the "Menüü" label, 32px left padding, panel runs to the screen's right edge | Same alignment as the live main site. Without KOGUKOND there's no room for the designed right padding |
+| Dropdown position | 12px under the bar; starts 32px left of the "Menüü" label, width = links + 32px each side | Measured on the live main site, telliskivitln.ee/hub (Ken) |
 | Dropdown spacing | 32px gap measured from cap height to baseline, like Figma (rows 44px apart) | From the file |
 | Dropdown link hover | Orange + underline wipe | M-hoone hover |
 | KOGUKOND button | Removed | Main-site item, not part of WLLNSS (Ken) |

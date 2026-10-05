@@ -173,22 +173,21 @@ section { position: relative; overflow: clip; }
 .hdr__menu-btn[aria-expanded="true"] .hdr__close { display: block; }
 
 /* --- open menu (3:1027 / 3:1247) ------------------------------
-   12px under the bar. As on the main site, the link text lines up with
-   the "Menüü" label: label starts 24 + 90 (label + X) from the right edge,
-   panel has 32px left padding. Without KOGUKOND that leaves no room for
-   the designed right padding, so the panel runs to the screen edge.
+   12px under the bar. Matches the live main site (telliskivitln.ee/hub):
+   the panel starts 32px left of the "Menüü" label (24 + 90 = label + X
+   from the right edge) and is only as wide as its links + 32px each side.
    Over the hero it is blur only with white text; once scrolled it takes
    the bar's 90% light. */
 .menu-drop {
   position: absolute;
   top: calc(var(--ticker-h) + 48px + 12px);
   left: calc(100% - 24px - 90px - 32px);
-  right: 0;
+  width: max-content;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
-  padding: 24px 0 24px 32px;
+  padding: 24px 32px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: var(--c-white);
