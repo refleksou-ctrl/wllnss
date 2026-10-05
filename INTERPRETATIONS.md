@@ -60,6 +60,13 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 
 All motion is off under `prefers-reduced-motion`.
 
+## Hero height (Ken's rule)
+
+The hero always fills the first screen: logo bar + hero = one screen height
+(minimum 560px). Figma's hero is a fixed 720px; its content is kept exactly as
+drawn and centred vertically, so on taller screens there is more photo above
+and below, and on shorter ones less.
+
 ## Wide screens (>1440)
 
 Content stays on a centred 1440 canvas. Exception: the social icons are always 24px from the screen's left edge (Ken), not from the canvas. The heading bars and the stats box

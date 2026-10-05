@@ -266,7 +266,16 @@ section { position: relative; overflow: clip; }
    HERO (2:156) — 720 tall, starts under the ticker
    ============================================================ */
 
-.hero { height: 720px; background: var(--c-lightgrey); color: var(--c-white); }
+.hero {
+  /* Rule (Ken): the hero always fills the first screen. Logo bar + hero =
+     exactly one screen. svh = the height with the phone's browser bars
+     showing, so nothing jumps; plain vh is the fallback for old browsers. */
+  height: calc(100vh - var(--ticker-h));
+  height: calc(100svh - var(--ticker-h));
+  min-height: 560px;
+  background: var(--c-lightgrey);
+  color: var(--c-white);
+}
 
 .hero__img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; }
 .hero::after {
@@ -275,13 +284,23 @@ section { position: relative; overflow: clip; }
   inset: 0;
   background: linear-gradient(-89.87deg, rgba(0, 0, 0, 0) 0%, rgba(72, 15, 12, 0.5) 99.944%);
 }
-.hero .canvas { z-index: 1; }
+/* Figma's 720px hero, kept whole and centred vertically, so every Figma
+   position below still works and the content sits where Figma puts it
+   relative to the middle of the screen. */
+.hero .canvas {
+  position: absolute;
+  z-index: 1;
+  left: 0; right: 0;
+  top: 50%;
+  height: 720px;
+  margin-top: -360px;
+}
 
 .hero__title { position: absolute; left: 175px; top: 184px; white-space: nowrap; }
 .hero__text  { position: absolute; left: 175px; top: 335px; white-space: nowrap; }
 .hero__cta   { position: absolute; left: 175px; top: 405px; }
 
-.social { position: absolute; z-index: 1; left: 24px; top: 184px; width: 24px; height: 170px; }
+.social { position: absolute; z-index: 1; left: 24px; top: calc(50% - 360px + 184px); width: 24px; height: 170px; }   /* Figma y184 on the centred 720 canvas */
 .social { color: var(--c-white); overflow: visible; }
 .social a { transition: color var(--dur-fast) var(--ease); }
 .social a:hover { color: var(--c-lightgrey); }   /* Helehall, the button-hover grey (Ken) */
@@ -599,8 +618,13 @@ section { position: relative; overflow: clip; }
   .bar::before { display: none; }
 
   /* hero */
+  .hero { min-height: calc(100vh - var(--ticker-h)); min-height: calc(100svh - var(--ticker-h)); }
   .hero .canvas {
-    min-height: 640px;
+    position: relative;
+    top: auto;
+    height: auto;
+    margin-top: 0;
+    min-height: inherit;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -671,7 +695,6 @@ section { position: relative; overflow: clip; }
 }
 
 @media (max-width: 700px) {
-  .hero .canvas { min-height: 560px; }
   .hero__img { object-position: 70% center; }
   .hero .canvas { padding-left: var(--gutter); }
   .social { display: none; }   /* no room beside the text on phones */
