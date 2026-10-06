@@ -13,7 +13,8 @@
 |------|-------------|--------|
 | index.html | WLLNSS 2:58 | built, matched at 1440 |
 | treeningud.html | Kõik treeningud 8:101 | built; filters behind a switch (`--filters` in tokens.css) |
-| reformer-pilates.html | Treening – detailvaade 6:35 | built (Reformer only; other treatments still `#`) |
+| reformer-pilates.html | Treening – detailvaade 6:35 | built |
+| pilates.html, jooga.html, personaaltreening.html | copies of 6:35 | built; copy and hero crops are mine, not designed |
 
 ## Client
 - Client name: Telliskivi TLN, WLLNSS wellness centre

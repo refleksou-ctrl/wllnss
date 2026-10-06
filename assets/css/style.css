@@ -669,17 +669,22 @@ section { position: relative; overflow: clip; }
    ============================================================ */
 
 /* hero (6:133) — positions differ from the homepage hero */
-.hero--detail .bar--hero { left: 125px; top: 204px; width: 489px; }
+.hero--detail .bar--hero { left: 125px; top: 204px; width: var(--bar-w, 489px); }   /* per page: title width + 50 left + 18 right */
 .hero--detail .hero__text { top: 283px; width: 427px; white-space: normal; }
+/* These three photos were shot as centred card images, so on the hero the
+   people sit behind the text. Desktop only: zoom in and slide right so the
+   text has clear space (translate % is of the 1440 box; the zoom is just
+   enough to still cover the left edge). Not designed, see INTERPRETATIONS. */
+.hero__img--personaaltreening { transform: translateX(15%) scale(1.3); }
+.hero__img--pilates           { transform: translateX(15%) scale(1.3); }
+.hero__img--yoga              { transform: translateX(10%) scale(1.2); }
 .detail__back { position: absolute; left: 159px; top: 106px; color: var(--c-white); }   /* arrow lines up with the title at x175 */
 
-/* category tag (10:175): 1px white line on the left only, 15/20 padding.
+/* category tags (10:175): 1px white line on the left only, 15/20 padding.
+   Several sit side by side 8px apart (not designed: Figma shows one).
    Part of the filters feature: hidden by the same --filters switch. */
+.detail__tags { position: absolute; left: 175px; top: 401px; display: var(--filters); flex-wrap: wrap; gap: 8px; }
 .detail__tag {
-  position: absolute;
-  left: 175px;
-  top: 401px;
-  display: var(--filters);
   padding: 15px 20px;
   border-left: 1px solid var(--c-white);
   font-size: var(--fs-menu);
@@ -860,10 +865,11 @@ section { position: relative; overflow: clip; }
   .asukoht__title { white-space: normal; }
 
   /* detail page */
-  .detail__back, .detail__tag { position: relative; left: auto; top: auto; }
+  .detail__back, .detail__tags { position: relative; left: auto; top: auto; }
   .detail__back { margin: 0 0 32px -16px; }
-  .detail__tag { margin-top: 40px; }
-  .hero--detail .hero__text { width: auto; top: auto; }   /* the desktop top:283 would otherwise shift it down */
+  .detail__tags { margin-top: 40px; }
+  .hero--detail .hero__text { width: auto; top: auto; }
+  .hero--detail .hero__img { transform: none; }   /* the desktop top:283 would otherwise shift it down */
   .mida, .partnerid { height: auto; }
   .mida .canvas, .partnerid .canvas { padding: 96px 0 96px var(--gutter); }
   .mida__title, .mida__text, .sobib, .partnerid__title, .partnerid__row { position: relative; left: auto; top: auto; right: auto; }
