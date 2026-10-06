@@ -671,13 +671,13 @@ section { position: relative; overflow: clip; }
 /* hero (6:133) — positions differ from the homepage hero */
 .hero--detail .bar--hero { left: 125px; top: 204px; width: var(--bar-w, 489px); }   /* per page: title width + 50 left + 18 right */
 .hero--detail .hero__text { top: 283px; width: 427px; white-space: normal; }
-/* These three photos were shot as centred card images, so on the hero the
-   people sit behind the text. Desktop only: zoom in and slide right so the
-   text has clear space (translate % is of the 1440 box; the zoom is just
-   enough to still cover the left edge). Not designed, see INTERPRETATIONS. */
-.hero__img--personaaltreening { transform: translateX(15%) scale(1.3); }
-.hero__img--pilates           { transform: translateX(15%) scale(1.3); }
-.hero__img--yoga              { transform: translateX(10%) scale(1.2); }
+/* Pilates still uses its centred card photo, so on the hero she sits behind
+   the text. Desktop only: zoom in and slide right so the text has clear space
+   (translate % is of the 1440 box; the zoom is just enough to still cover the
+   left edge). Jooga and Personaaltreening have proper wide hero photos (Ken).
+   Not designed, see INTERPRETATIONS. */
+.hero__img--pilates { transform: translateX(15%) scale(1.3); }
+
 .detail__back { position: absolute; left: 159px; top: 106px; color: var(--c-white); }   /* arrow lines up with the title at x175 */
 
 /* category tags (10:175): 1px white line on the left only, 15/20 padding.
