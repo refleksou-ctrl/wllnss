@@ -72,7 +72,7 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | Copy on those pages | Written by me in Estonian (hero text, "Mida oodata?"), semi-real like the Reformer copy. Lesson lengths (50/60 min) are made up | Placeholder until partners supply text |
 | "Kellele sobib?" | Pilates: Algaja. Jooga, Personaaltreening: Kõik tasemed | My guess |
 | Several category tags | Side by side, 8px apart, wrap on phones (Figma shows one tag) | Pilates and Jooga have more than one placeholder category |
-| Hero photos | Jooga and Personaaltreening use Ken's wide hero photos (`*_wide.webp`), no adjustment. Pilates still uses its centred card photo: on desktop zoomed 1.3× and shifted right so she doesn't sit behind the text; phones unchanged | A wide Pilates shot would let that workaround go too |
+| Hero photos | Pilates, Jooga and Personaaltreening use Ken's wide hero photos (`*_wide.webp`); the cards keep the original photos | Square card photos cut heads off in the wide hero |
 | "Teised treeningud" | The other three treatments + the first repeated, so the row overflows like in Figma | Ken |
 | <1200px | Hero stacks back link → title → text → tag; "Kellele sobib?" and partner cards go full width; level boxes wrap on phones | Not designed |
 
