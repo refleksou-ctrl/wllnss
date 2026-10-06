@@ -232,10 +232,14 @@ section { position: relative; overflow: clip; }
 .nupp--hele { background: var(--c-hele); }
 .nupp--hele:hover { background: var(--c-hele-hover); }
 
+/* tume fill, white label — BRONEERI TREENING on the hele partner card (6:269) */
+.nupp--tume { background: var(--c-tume); color: var(--c-white); }
+.nupp--tume:hover { background: var(--c-tume-hover); }
+
 /* Round arrow buttons, carousel (2:265 / 2:269) */
 .nupp-round { gap: 0; }
-.nupp-round--back .nupp__arrow { transform: rotate(180deg); }
-.nupp-round--back:hover .nupp__arrow { transform: rotate(180deg) translateX(4px); }
+.nupp-round--back .nupp__arrow, .nupp--back .nupp__arrow { transform: rotate(180deg); }
+.nupp-round--back:hover .nupp__arrow, .nupp--back:hover .nupp__arrow { transform: rotate(180deg) translateX(4px); }
 .nupp-round:disabled { opacity: 0.3; cursor: default; background: transparent; }
 .nupp-round:disabled .nupp__arrow { transform: none; }
 .nupp-round--back:disabled .nupp__arrow { transform: rotate(180deg); }
@@ -629,11 +633,10 @@ section { position: relative; overflow: clip; }
   text-box: trim-both cap alphabetic;
 }
 
-/* --- filters (switch: body[data-filters="on"|"off"]) ------------
+/* --- filters (switch: --filters in tokens.css) ------------------
    Chip: 15/20 padding, 1px outline, Menüü 18px label; 45px tall as in Figma.
    Active = WLLNSS hele fill + black label (same as the hele Nupp_small). */
-.filtrid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 64px; }
-body:not([data-filters="on"]) .filtrid { display: none; }
+.filtrid { display: var(--filters); flex-wrap: wrap; gap: 8px; margin-top: 64px; }
 
 .filter {
   padding: 15px 20px;
@@ -659,6 +662,94 @@ body:not([data-filters="on"]) .filtrid { display: none; }
 }
 .koik__grid .ala { animation: ala-in var(--dur-slow) var(--ease); }
 @keyframes ala-in { from { opacity: 0; transform: translateY(12px); } }
+
+/* ============================================================
+   PAGE: reformer-pilates.html — TREENINGU DETAILVAADE (Figma 6:35)
+   Hero reuses the homepage hero (full-screen rule, centred 720 canvas).
+   ============================================================ */
+
+/* hero (6:133) — positions differ from the homepage hero */
+.hero--detail .bar--hero { left: 125px; top: 204px; width: 489px; }
+.hero--detail .hero__text { top: 283px; width: 427px; white-space: normal; }
+.detail__back { position: absolute; left: 159px; top: 106px; color: var(--c-white); }   /* arrow lines up with the title at x175 */
+
+/* category tag (10:175): 1px white line on the left only, 15/20 padding.
+   Part of the filters feature: hidden by the same --filters switch. */
+.detail__tag {
+  position: absolute;
+  left: 175px;
+  top: 401px;
+  display: var(--filters);
+  padding: 15px 20px;
+  border-left: 1px solid var(--c-white);
+  font-size: var(--fs-menu);
+  line-height: 15px;
+  transition: color var(--dur-fast) var(--ease);
+}
+.detail__tag:hover { color: var(--c-orange); }
+
+/* Mida oodata / Kellele sobib (6:186) — the intro layout */
+.mida { height: 580px; background: var(--c-white); }
+.mida__title { position: absolute; left: 144px; top: 188px; }
+.mida__text  { position: absolute; left: 261px; top: 285px; width: 393px; text-box: trim-both cap alphabetic; }
+
+/* 6:206 — tume box flush right, same build as the homepage stats */
+.sobib {
+  position: absolute;
+  right: 0;
+  top: 170px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 36px 40px 36px 24px;
+  background: var(--c-tume);
+  color: var(--c-hele);
+}
+.sobib::after { content: ""; position: absolute; left: 100%; top: 0; bottom: 0; width: 50vw; background: inherit; }
+.sobib__title {
+  width: 501px;
+  padding: 16px 0 24px;                      /* Figma: block py16, 8px gap, line 10:167 */
+  border-bottom: 1px solid var(--c-hele);
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+  text-box: trim-both cap alphabetic;
+}
+.sobib__row { display: flex; gap: 16px; padding-top: 16px; }
+.sobib__tase {
+  position: relative;
+  flex: 1 0 0;
+  padding: 16px 24px;
+  text-align: center;
+  font-size: var(--fs-menu);
+  line-height: 13px;
+  white-space: nowrap;
+}
+.sobib__tase + .sobib__tase::before { content: ""; position: absolute; left: -8.5px; top: 0; bottom: 0; width: 1px; background: var(--c-hele); }
+.sobib__tase.is-on { background: var(--c-hele); color: var(--c-black); }   /* the level(s) this treatment suits */
+
+/* Partnerid (6:216) */
+.partnerid { height: 755px; background: var(--c-tume); color: var(--c-white); }
+.partnerid__title { position: absolute; left: 144px; top: 188px; width: 597px; }
+.partnerid__row { position: absolute; left: 144px; top: 380px; display: flex; gap: 16px; }
+.partner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 567px;
+  padding: 36px 32px 32px;
+  background: var(--c-hele);
+  color: var(--c-black);
+}
+.partner__name { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-h2); line-height: var(--lh-h2); text-box: trim-both cap alphabetic; }
+.partner__intro { text-box: trim-both cap alphabetic; }
+
+/* Teised treeningud (10:177) — the homepage slider section, on white */
+.teised { background: var(--c-white); }
+.teised .treeningud__title, .teised .treeningud__all, .teised .slider__nav .nupp { color: var(--c-black); }
 
 /* ============================================================
    REVEAL
@@ -768,6 +859,22 @@ body:not([data-filters="on"]) .filtrid { display: none; }
   .asukoht__content { gap: 40px; }
   .asukoht__title { white-space: normal; }
 
+  /* detail page */
+  .detail__back, .detail__tag { position: relative; left: auto; top: auto; }
+  .detail__back { margin: 0 0 32px -16px; }
+  .detail__tag { margin-top: 40px; }
+  .hero--detail .hero__text { width: auto; top: auto; }   /* the desktop top:283 would otherwise shift it down */
+  .mida, .partnerid { height: auto; }
+  .mida .canvas, .partnerid .canvas { padding: 96px 0 96px var(--gutter); }
+  .mida__title, .mida__text, .sobib, .partnerid__title, .partnerid__row { position: relative; left: auto; top: auto; right: auto; }
+  .mida__title, .partnerid__title { padding-right: var(--gutter); width: auto; }
+  .mida__text { width: auto; max-width: 393px; margin: 40px 0 0 min(117px, 10vw); padding-right: var(--gutter); }
+  .sobib { margin-top: 64px; }
+  .sobib::after { display: none; }
+  .sobib__title { width: auto; }
+  .partnerid__row { margin-top: 64px; padding-right: var(--gutter); flex-wrap: wrap; }
+  .partner { width: 100%; max-width: 567px; }
+
   /* kõik treeningud */
   .koik .canvas { padding: 96px var(--gutter) 96px; }
   .koik__intro { width: auto; max-width: 393px; margin-left: min(117px, 10vw); }
@@ -791,4 +898,8 @@ body:not([data-filters="on"]) .filtrid { display: none; }
   .rohkem .canvas { grid-template-columns: 1fr; gap: 48px; }
   .ftr__title { white-space: normal; }
   .koik__grid .ala { width: auto; height: 400px; }
+  .sobib { padding: 28px var(--gutter) 28px 20px; width: 100%; }
+  .sobib__row { flex-wrap: wrap; }
+  .sobib__tase { padding: 16px; }
+  .sobib__tase + .sobib__tase::before { display: none; }
 }

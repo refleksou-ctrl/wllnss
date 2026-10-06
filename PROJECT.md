@@ -12,8 +12,8 @@
 | File | Figma frame | Status |
 |------|-------------|--------|
 | index.html | WLLNSS 2:58 | built, matched at 1440 |
-| treeningud.html | Kõik treeningud 8:101 | built; filters behind a switch |
-| detail page | Treening – detailvaade 6:35 | designed in Figma, not built |
+| treeningud.html | Kõik treeningud 8:101 | built; filters behind a switch (`--filters` in tokens.css) |
+| reformer-pilates.html | Treening – detailvaade 6:35 | built (Reformer only; other treatments still `#`) |
 
 ## Client
 - Client name: Telliskivi TLN, WLLNSS wellness centre

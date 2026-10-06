@@ -51,13 +51,25 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 
 | What | What I did | Why |
 |---|---|---|
-| Filters MOVE / RESET / RECOVER / CONNECT | Built and **on**, but not in the current Figma frame (Ken removed them there). Switch: `data-filters="on"` → `"off"` on the `<body>` line of treeningud.html. Off = exactly the Figma frame | Ken likes them; a PM may not |
+| Filters MOVE / RESET / RECOVER / CONNECT | Built and **on**, but not in the current Figma frame (Ken removed them there). Switch: `--filters: flex;` → `none` in assets/css/tokens.css. Hides the filters here and the category tag on detail pages. Off = exactly the Figma frames | Ken likes them; a PM may not |
 | Filter look | Outlined white chips, active one filled WLLNSS hele with black text; hover = the 10% light overlay | From my earlier Figma version of this page |
 | Treatment categories | **Placeholders:** Pilates = MOVE + RECOVER, Reformer = MOVE, Jooga = RESET + RECOVER + CONNECT, Personaaltreening = MOVE | Real categories are a content decision |
 | Cards | Same as the homepage slider; cards 5–6 repeat 1–2, as in Figma. Links still `#` | Detail pages not built yet |
 | Filtering | Non-matching cards disappear, the rest close up and fade in | Not designed |
 | "Vaata kõiki" on the homepage | Now opens this page | — |
 | <1200px | Cards in as many columns as fit (min 300px); filters wrap | Not designed |
+
+## Detail page (reformer-pilates.html, Figma 6:35)
+
+| What | What I did | Why |
+|---|---|---|
+| Hero | Homepage hero rules (full screen, centred 720 canvas) with the Figma positions of 6:133 | Ken's hero rule |
+| "← Kõik treeningud" | Links to treeningud.html; arrow slides on hover like the other arrow buttons | — |
+| "MOVE" tag | Links to treeningud.html?f=move, which opens the overview with MOVE selected. Hover turns orange. Hidden by the filters switch | Part of the filters feature |
+| BRONEERI TREENING | Tume fill, white label; hover darkens to #8F5550 (same step as the other hovers). Link is `#` for now; the partner's booking URL goes in with `target="_blank"` | Opening a placeholder in a new tab would just duplicate this page |
+| "Algaja" highlighted | Filled hele with black text = the level(s) this treatment suits | Ken's Figma |
+| Reformer cards | On the homepage and the overview they now open this page | — |
+| <1200px | Hero stacks back link → title → text → tag; "Kellele sobib?" and partner cards go full width; level boxes wrap on phones | Not designed |
 
 ## Motion (no motion spec in the file)
 

@@ -80,10 +80,11 @@
   }
 
   /* --- treatment filters (treeningud.html) --------------------
-     Only runs when <body data-filters="on">. A card shows when its
+     Only runs when the filter row is visible (--filters in tokens.css). A card shows when its
      data-cat list contains the chosen filter; "all" shows everything. */
   var grid = document.querySelector("[data-grid]");
-  if (grid && document.body.getAttribute("data-filters") === "on") {
+  var filterRow = document.querySelector(".filtrid");
+  if (grid && filterRow && getComputedStyle(filterRow).display !== "none") {   // switch: --filters in tokens.css
     var buttons = document.querySelectorAll("[data-filter]");
     Array.prototype.forEach.call(buttons, function (btn) {
       btn.addEventListener("click", function () {
@@ -95,6 +96,10 @@
         });
       });
     });
+    // treeningud.html?f=move (from a detail page's category tag) opens with that filter on
+    var pre = new URLSearchParams(location.search).get("f");
+    var preBtn = pre && document.querySelector('[data-filter="' + pre + '"]');
+    if (preBtn) preBtn.click();
   }
 
   /* --- card slider -------------------------------------------

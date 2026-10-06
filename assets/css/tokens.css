@@ -36,6 +36,7 @@
   /* Hovers borrowed from Telliskivi M (Tükid 1:66082). See INTERPRETATIONS.md */
   --c-orange-hover: #E74219;  /* "oranži hover" */
   --c-hele-hover:   #D9906A;  /* hele darkened by the same step as oranž -> oranži hover */
+  --c-tume-hover:   #8F5550;  /* tume darkened by the same step, for the tume BRONEERI button */
   --c-btn-hover:    rgba(240, 240, 240, 0.1);  /* Helehall at 10%, Ken 2026-10-05 */
 
   /* --- type (Figma text styles, verbatim) ------------------ */
@@ -48,6 +49,12 @@
   --fs-menu: 18px; --lh-menu: 24px; /* Menüü — button labels */
   --fs-b1: 16px;  --lh-b1: 1.4;
   --fs-b2: 14px;  --lh-b2: 1.2;
+
+  /* --- FILTERS SWITCH ---------------------------------------
+     flex = treatment filters on (Kõik treeningud page) and the category
+     tag on detail pages. none = both gone; the pages then match Figma
+     without filters. This one word is the only thing to change. */
+  --filters: flex;
 
   /* --- layout ---------------------------------------------- */
   --container: 1440px;
