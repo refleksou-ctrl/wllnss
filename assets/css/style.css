@@ -679,9 +679,11 @@ section { position: relative; overflow: clip; }
 /* hero (6:133) — positions differ from the homepage hero */
 .hero--detail .bar--hero { left: 125px; top: 204px; width: var(--bar-w, 489px); }   /* per page: title width + 50 left + 18 right */
 .hero--detail .hero__text { top: 283px; width: 427px; white-space: normal; }
-/* Pilates hero (Figma "Telliskivi – Web" 5596:10233): stronger fade for the white
-   studio photo — WLLNSS tume from the left, layer at 90% (other heroes keep the brown 50%) */
-.hero--pilates::after { background: linear-gradient(-89.87deg, rgba(160, 96, 90, 0) 0%, rgba(160, 96, 90, 0.9) 99.944%); }
+/* Per-photo hero fades (Figma "Telliskivi – Web"). Same brown #480F0C and direction
+   as the default; end opacity = stop alpha x layer opacity.
+   Pilates 5596:10233: 0.7 x 0.9 = 0.63.  Jooga 5596:10268: 1 x 0.3 = 0.3.  Others: 0.5. */
+.hero--pilates::after { background: linear-gradient(-89.87deg, rgba(72, 15, 12, 0) 0%, rgba(72, 15, 12, 0.63) 99.944%); }
+.hero--jooga::after   { background: linear-gradient(-89.87deg, rgba(72, 15, 12, 0) 0%, rgba(72, 15, 12, 0.3) 99.944%); }
 
 .detail__back { position: absolute; left: 159px; top: 106px; color: var(--c-white); }   /* arrow lines up with the title at x175 */
 
