@@ -72,7 +72,7 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | Copy on those pages | Written by me in Estonian (hero text, "Mida oodata?"), semi-real like the Reformer copy. Lesson lengths (50/60 min) are made up | Placeholder until partners supply text |
 | "Kellele sobib?" | Pilates: Algaja. Jooga, Personaaltreening: Kõik tasemed | My guess |
 | Several category tags | Side by side, 8px apart, wrap on phones (Figma shows one tag) | Pilates and Jooga have more than one placeholder category |
-| Hero photos | Personaaltreening uses `personaaltreening_wide.webp`. Pilates and Jooga use `pilates_2.webp` / `yoga_2.webp` (2026-10-08): one photo each for hero and cards; cards crop them with object-position 79% / 90% so the whole figure shows. Pilates and Jooga heroes have their own fade strength from Figma (brown, 63% / 30% instead of 50%). Both photos are anchored near the top (Jooga 10%, Pilates 0%) so on short screens the crop comes off the floor, not the head/raised foot | Square card photos cut heads off in the wide hero |
+| Hero photos | Pilates, Jooga and Personaaltreening use one photo each for hero + cards: `pilates_2.webp`, `yoga_2.webp`, `personal_2.webp` (2026-10-08). Cards crop them with object-position 79% / 90% / 86% so the whole figure(s) show. Heroes are anchored near the top (Pilates 0%, Jooga 10%, Personaaltreening 10%) so on short screens the crop comes off the floor. Pilates and Jooga have their own fade strength from Figma (brown 63% / 30%; others 50%) | Square card photos cut heads off in the wide hero |
 | "Teised treeningud" | The other three treatments + the first repeated, so the row overflows like in Figma | Ken |
 | <1200px | Hero stacks back link → title → text → tag; "Kellele sobib?" and partner cards go full width; level boxes wrap on phones | Not designed |
 
@@ -138,6 +138,8 @@ the designer for mobile frames.
   few px lower.
 
 ## Open questions
+
+- Personaaltreening hero (personal_2): the client's head sits where the long orange title bar ends (bar to ~x654 at 1440, head from ~x630) and the room is white, so "Menüü" is faint. A crop with a bit more room on the left would clear it.
 
 
 - Pilates hero (pilates_2): white studio wall behind white text — description, RECOVER tag and "Menüü" are hard to read. Ken: use as is for now, decide later (tone the photo / stronger fade).
