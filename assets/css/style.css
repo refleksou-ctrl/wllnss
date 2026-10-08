@@ -29,7 +29,7 @@ button { font: inherit; }
    positions are measured that way. text-box does the same in CSS, so the
    numbers below can be copied verbatim. (Chrome 133+, Safari 18.2+;
    Firefox ignores it and text sits a few px lower.) */
-.h1, .menu-drop a, .hero__text, .intro__text, .stat__num, .stat__label,
+.h1, .menu-drop a, .hero__text, .intro__text,
 .ala__title, .viis__title, .viis__text, .asukoht__title, .ftr__title, .ftr p, .ftr__nav a {
   text-box: trim-both cap alphabetic;
 }
@@ -314,74 +314,82 @@ section { position: relative; overflow: clip; }
 .social a:hover { color: var(--c-lightgrey); }   /* Helehall, the button-hover grey (Ken) */
 
 /* ============================================================
-   INTRO (2:207)
+   INTRO — "Telliskivi – Web" 5605:5327 (was 2:207): tume, white text
    ============================================================ */
 
-.intro { height: 612px; background: var(--c-white); }
+.intro { height: 612px; background: var(--c-tume); color: var(--c-white); }
 
 .intro__title { position: absolute; left: 144px; top: 188px; width: 597px; }
 .intro__text  { position: absolute; left: 261px; top: 337px; width: 393px; }
 
-.stats {
-  position: absolute;
-  right: 0;
-  top: 170px;
-  padding: 36px 40px 36px 24px;
-  background: var(--c-tume);
-}
-.stats::after {   /* carries the box to the viewport edge past 1440 */
-  content: "";
-  position: absolute;
-  left: 100%;
-  top: 0; bottom: 0;
-  width: 50vw;
-  background: inherit;
-}
+/* ============================================================
+   NUMBRID — 5596:10132. Hele band, 80px top/bottom, content centred.
+   Figma values are the old stats scaled ~1.43x, kept verbatim.
+   ============================================================ */
 
-/* Figma 2:212 (3rd version): 517 wide. No outlines: the three stats are split
-   by 1px WLLNSS hele vertical lines (8px either side), and a full-width hele
-   line separates them from "1 WLLNSS". Row has 16px bottom padding. */
-.stats__row { display: flex; gap: 16px; width: 517px; padding-bottom: 16px; color: var(--c-hele); }
+.numbrid {
+  display: flex;
+  justify-content: center;
+  padding: 80px 0;
+  background: var(--c-hele);
+}
+.numbrid__inner { display: flex; flex-direction: column; align-items: stretch; }
 
-.stat {
+/* 5605:5350 — stats, 1.785px lines centred in 14.282px gaps either side */
+.numbrid__row { display: flex; justify-content: center; gap: 30.349px; color: var(--c-tume); }
+.numbrid__stat {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 16px 24px;
+  align-items: center;
+  gap: 21.424px;
+  padding: 28.565px 42.847px;
   white-space: nowrap;
 }
-.stat + .stat::before {   /* Figma lines 3:2485 / 3:2486: centred in the 16px gap, full box height */
+/* Lines 5605:5354 / :5358 are WLLNSS hele on the hele band, so they don't
+   show — copied as drawn, flagged in INTERPRETATIONS (Open questions). */
+.numbrid__stat + .numbrid__stat::before {
   content: "";
   position: absolute;
-  left: -8.5px;
+  left: -16.067px;
   top: 0; bottom: 0;
-  width: 1px;
+  width: 1.785px;
   background: var(--c-hele);
 }
+.numbrid__num {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 1.1;
+  text-box: trim-both cap alphabetic;
+}
+.numbrid__num sup { font-size: 0.645em; line-height: 0; vertical-align: 0.6em; }   /* 30.96px in Figma */
+.numbrid__label { font-size: 16px; line-height: 1.2; text-box: trim-both cap alphabetic; }
 
-/* 3:2482 line, 8px gap each side, then 3:1851: 517 x 66, label centred */
-.stats__big {
-  width: 517px;
-  margin-top: 8px;
-  padding: 24px 0 16px;
-  border-top: 1px solid var(--c-hele);
+/* 5605:5363 — "1 WLLNSS" 100px white, 28.565 above/below.
+   Orange bar 5605:5377 (589 x 59) sits 40.9px below the cap top and 51.5px
+   wider than the text each side: drawn in em so it scales with the text. */
+.numbrid__big {
+  padding: 28.565px 0;
   text-align: center;
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: var(--fs-h1);
-  line-height: var(--lh-h1);
-  color: var(--c-hele);
+  font-size: 100px;
+  line-height: 1.1;
+  color: var(--c-white);
   text-box: trim-both cap alphabetic;
 }
-.stat__num {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: var(--fs-stat);
-  line-height: var(--lh-stat);
+.numbrid__big span { position: relative; z-index: 0; display: inline-block; white-space: nowrap; text-box: trim-both cap alphabetic; }
+.numbrid__big span::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0.409em;
+  left: -0.515em;
+  right: -0.515em;
+  height: 0.59em;
+  background: var(--c-orange);
 }
-.stat__num sup { font-size: 0.645em; line-height: 0; vertical-align: 0.6em; }  /* 21.93px in Figma */
-.stat__label { font-size: var(--fs-b2); line-height: var(--lh-b2); }
 
 /* ============================================================
    TREENINGUD (2:224) — card slider
@@ -687,15 +695,15 @@ section { position: relative; overflow: clip; }
 }
 .detail__tag:hover { color: var(--c-orange); }
 
-/* Mida oodata / Kellele sobib (6:186) — the intro layout */
-.mida { height: 580px; background: var(--c-white); }
+/* Mida oodata / Kellele sobib ("Telliskivi – Web" 5596:10208): tume, white text */
+.mida { height: 580px; background: var(--c-tume); color: var(--c-white); }
 .mida__title { position: absolute; left: 144px; top: 188px; }
 .mida__text  { position: absolute; left: 261px; top: 285px; width: 393px; text-box: trim-both cap alphabetic; }
 
-/* 6:206 — tume box flush right, same build as the homepage stats */
+/* Kellele sobib — at x779 now (no longer flush right); tume on the tume section */
 .sobib {
   position: absolute;
-  right: 0;
+  left: 779px;
   top: 170px;
   display: flex;
   flex-direction: column;
@@ -704,7 +712,6 @@ section { position: relative; overflow: clip; }
   background: var(--c-tume);
   color: var(--c-hele);
 }
-.sobib::after { content: ""; position: absolute; left: 100%; top: 0; bottom: 0; width: 50vw; background: inherit; }
 .sobib__title {
   width: 501px;
   padding: 16px 0 24px;                      /* Figma: block py16, 8px gap, line 10:167 */
@@ -746,9 +753,9 @@ section { position: relative; overflow: clip; }
 .partner__name { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-h2); line-height: var(--lh-h2); text-box: trim-both cap alphabetic; }
 .partner__intro { text-box: trim-both cap alphabetic; }
 
-/* Teised treeningud (10:177) — the homepage slider section, on white */
-.teised { background: var(--c-white); }
-.teised .treeningud__title, .teised .treeningud__all, .teised .slider__nav .nupp { color: var(--c-black); }
+/* Teised treeningud (5596:10218) — the homepage slider section as is (tume).
+   1px hele line where it meets the (also tume) footer, like Kõik treeningud. */
+.teised::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--c-hele); }
 
 /* ============================================================
    REVEAL
@@ -820,13 +827,12 @@ section { position: relative; overflow: clip; }
 
   /* intro */
   .intro .canvas { padding: 96px 0 96px var(--gutter); }
-  .intro__title, .intro__text, .stats { position: relative; left: auto; top: auto; right: auto; }
+  .intro__title, .intro__text { position: relative; left: auto; top: auto; right: auto; }
   .intro__title { width: auto; max-width: 597px; padding-right: var(--gutter); }
   .intro__text { width: auto; max-width: 393px; margin: 40px 0 0 min(117px, 10vw); padding-right: var(--gutter); }
-  .stats { margin-top: 64px; }
-  .stats::after { display: none; }
-  .stats__row, .stats__big { width: auto; }
-  .stats__row { flex-wrap: wrap; }
+  .numbrid { padding: 64px var(--gutter); }
+  .numbrid__row { flex-wrap: wrap; row-gap: 0; }
+  .numbrid__big { font-size: 80px; }
 
   /* treeningud */
   .treeningud { padding-bottom: 64px; }
@@ -869,7 +875,6 @@ section { position: relative; overflow: clip; }
   .mida__title, .partnerid__title { padding-right: var(--gutter); width: auto; }
   .mida__text { width: auto; max-width: 393px; margin: 40px 0 0 min(117px, 10vw); padding-right: var(--gutter); }
   .sobib { margin-top: 64px; }
-  .sobib::after { display: none; }
   .sobib__title { width: auto; }
   .partnerid__row { margin-top: 64px; padding-right: var(--gutter); flex-wrap: wrap; }
   .partner { width: 100%; max-width: 567px; }
@@ -891,8 +896,11 @@ section { position: relative; overflow: clip; }
   .hero__img { object-position: 70% center; }
   .hero .canvas { padding-left: var(--gutter); }
   .social { display: none; }   /* no room beside the text on phones */
-  .stats { padding: 28px var(--gutter) 28px 20px; width: 100%; }
-  .stat { padding: 14px 16px; }
+  .numbrid__row { gap: 8px 16px; }
+  .numbrid__stat { padding: 16px 12px; }
+  .numbrid__stat + .numbrid__stat::before { display: none; }
+  .numbrid__num { font-size: 36px; }
+  .numbrid__big { font-size: 56px; }
   .ala { width: 300px; height: 360px; padding: 32px 24px 24px; }
   .rohkem .canvas { grid-template-columns: 1fr; gap: 48px; }
   .ftr__title { white-space: normal; }

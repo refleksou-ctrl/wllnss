@@ -76,6 +76,16 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | "Teised treeningud" | The other three treatments + the first repeated, so the row overflows like in Figma | Ken |
 | <1200px | Hero stacks back link → title → text → tag; "Kellele sobib?" and partner cards go full width; level boxes wrap on phones | Not designed |
 
+## Design update 2026-10-08 (Figma "Telliskivi – Web", section 3 Ekraanid)
+
+| What | What I did | Why |
+|---|---|---|
+| "Üks koht" intro | Now tume with white text and an orange bar; the stats box left this section | From the file |
+| New numbers band | Hele, 80px top/bottom, three stats centred (48px tume), "1 WLLNSS" 100px white on a 589×59 orange bar. Count-up kept. The bar is drawn in em so it scales with the text on phones | From the file; bar sizing is mine |
+| Numbers band <1200px | 64px padding, "1 WLLNSS" 80px; phones: stats wrap, 36px numbers, "1 WLLNSS" 56px | Not designed |
+| Detail "Mida oodata?" | Tume, white text, orange bar; "Kellele sobib?" at x779 (no longer flush right, so no bleed to the screen edge) | From the file |
+| Detail "Teised treeningud" | Same as the homepage slider (tume, hele links) + 1px hele line above the footer | From the file |
+
 ## Motion (no motion spec in the file)
 
 | What | What I did |
@@ -127,6 +137,8 @@ the designer for mobile frames.
   few px lower.
 
 ## Open questions
+
+- Numbers band: the divider lines between the three stats are WLLNSS hele on the hele background, so they're invisible. Built as drawn. Intended, or should they be tume?
 
 - Is the "1 WLLNSS" heading in the stats box final copy?
 - Real social media URLs?

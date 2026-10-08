@@ -1,6 +1,8 @@
 # Telliskivi WLLNSS
 
 ## Figma
+- **Current source (from 2026-10-08):** "Telliskivi – Web" https://www.figma.com/design/A2buAnkeUXMFuerjMusrb4/Telliskivi---Web?node-id=5596-10121 (section "3 Ekraanid"; made from the documentation page Claude built, then edited by Ken)
+- Earlier source, below:
 - File URL: https://www.figma.com/design/ndmYXBrFegu0M5ydwKj9HE/Untitled?node-id=0-1
 - File key: ndmYXBrFegu0M5ydwKj9HE
 - Page / frames to build: Page 1 → `WLLNSS` (2:58), the homepage only
