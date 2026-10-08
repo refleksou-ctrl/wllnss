@@ -84,6 +84,7 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | New numbers band | Hele, 80px top/bottom, three stats centred (48px tume), "1 WLLNSS" 100px white on a 589×59 orange bar. Count-up kept. The bar is drawn in em so it scales with the text on phones | From the file; bar sizing is mine |
 | Numbers band <1200px | 64px padding, "1 WLLNSS" 80px; phones: stats wrap, 36px numbers, "1 WLLNSS" 56px | Not designed |
 | Detail "Mida oodata?" | Tume, white text, orange bar; "Kellele sobib?" at x779 (no longer flush right, so no bleed to the screen edge) | From the file |
+| Line under "Mida oodata?" | 1px hele at the section bottom, from x144 to the screen's right edge (on wide screens it starts at the content edge; phones: at the side margin) | From the file (5605:5388); wide/phone behaviour is mine |
 | Detail "Teised treeningud" | Same as the homepage slider (tume, hele links) + 1px hele line above the footer | From the file |
 
 ## Motion (no motion spec in the file)

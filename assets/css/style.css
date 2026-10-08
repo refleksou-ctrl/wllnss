@@ -697,6 +697,17 @@ section { position: relative; overflow: clip; }
 
 /* Mida oodata / Kellele sobib ("Telliskivi – Web" 5596:10208): tume, white text */
 .mida { height: 580px; background: var(--c-tume); color: var(--c-white); }
+/* Line 5605:5388 — 1px hele along the bottom, from the content edge (x144)
+   to the right edge of the screen; separates it from the tume partners section */
+.mida::after {
+  content: "";
+  position: absolute;
+  left: calc(max(0px, (100% - var(--container)) / 2) + 144px);
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--c-hele);
+}
 .mida__title { position: absolute; left: 144px; top: 188px; }
 .mida__text  { position: absolute; left: 261px; top: 285px; width: 393px; text-box: trim-both cap alphabetic; }
 
@@ -875,6 +886,7 @@ section { position: relative; overflow: clip; }
   .mida__title, .partnerid__title { padding-right: var(--gutter); width: auto; }
   .mida__text { width: auto; max-width: 393px; margin: 40px 0 0 min(117px, 10vw); padding-right: var(--gutter); }
   .sobib { margin-top: 64px; }
+  .mida::after { left: var(--gutter); }
   .sobib__title { width: auto; }
   .partnerid__row { margin-top: 64px; padding-right: var(--gutter); flex-wrap: wrap; }
   .partner { width: 100%; max-width: 567px; }
