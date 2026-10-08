@@ -455,12 +455,21 @@ section { position: relative; overflow: clip; }
   transition: transform 600ms var(--ease-out);
 }
 .ala__img--pilates  { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 79% 50%; }   /* pilates_2: one wide photo for card + hero; card window centred on her (raised foot to head) */
-.ala__img--reformer { inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ala__img--reformer { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }   /* reformer_2: card window on the springs */
 .ala__img--yoga     { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 90% 50%; }   /* yoga_2: one wide photo for card + hero; card window centred on her pose */
 .ala__img--personaaltreening { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 86% 50%; }   /* personal_2: one wide photo for card + hero; card window holds both people */
 .ala:hover .ala__img { transform: scale(1.03); }
 
-.ala__body { position: relative; display: flex; flex-direction: column; gap: 15px; }
+.ala__body { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 15px; }
+/* Reformer card (reformer_2 is a dark photo): white fade from the bottom so the black
+   title and "Vaata lähemalt" stay readable (Ken, 2026-10-08). Other cards unchanged. */
+.ala:has(.ala__img--reformer)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.6) 30%, rgba(255, 255, 255, 0) 60%);
+  pointer-events: none;
+}
 .ala__title {
   font-family: var(--font-display);
   font-weight: 500;
