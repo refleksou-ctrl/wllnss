@@ -456,7 +456,7 @@ section { position: relative; overflow: clip; }
 }
 .ala__img--pilates  { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 79% 50%; }   /* pilates_2: one wide photo for card + hero; card window centred on her (raised foot to head) */
 .ala__img--reformer { inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.ala__img--yoga     { width: 133.79%; height: 109.09%; left: -21.15%; top: -9.09%; }
+.ala__img--yoga     { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 90% 50%; }   /* yoga_2: one wide photo for card + hero; card window centred on her pose */
 .ala__img--personaaltreening { width: 130.73%; height: 114.15%; left: -15.46%; top: -14.15%; }
 .ala:hover .ala__img { transform: scale(1.03); }
 
@@ -679,6 +679,9 @@ section { position: relative; overflow: clip; }
 /* hero (6:133) — positions differ from the homepage hero */
 .hero--detail .bar--hero { left: 125px; top: 204px; width: var(--bar-w, 489px); }   /* per page: title width + 50 left + 18 right */
 .hero--detail .hero__text { top: 283px; width: 427px; white-space: normal; }
+/* Pilates hero (Figma "Telliskivi – Web" 5596:10233): stronger fade for the white
+   studio photo — WLLNSS tume from the left, layer at 90% (other heroes keep the brown 50%) */
+.hero--pilates::after { background: linear-gradient(-89.87deg, rgba(160, 96, 90, 0) 0%, rgba(160, 96, 90, 0.9) 99.944%); }
 
 .detail__back { position: absolute; left: 159px; top: 106px; color: var(--c-white); }   /* arrow lines up with the title at x175 */
 

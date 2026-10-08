@@ -72,7 +72,7 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | Copy on those pages | Written by me in Estonian (hero text, "Mida oodata?"), semi-real like the Reformer copy. Lesson lengths (50/60 min) are made up | Placeholder until partners supply text |
 | "Kellele sobib?" | Pilates: Algaja. Jooga, Personaaltreening: Kõik tasemed | My guess |
 | Several category tags | Side by side, 8px apart, wrap on phones (Figma shows one tag) | Pilates and Jooga have more than one placeholder category |
-| Hero photos | Jooga and Personaaltreening use Ken's wide hero photos (`*_wide.webp`). Pilates uses `pilates_2.webp` (2026-10-08), one photo for both hero and cards; cards crop it with object-position 79% so the whole figure shows | Square card photos cut heads off in the wide hero |
+| Hero photos | Personaaltreening uses `personaaltreening_wide.webp`. Pilates and Jooga use `pilates_2.webp` / `yoga_2.webp` (2026-10-08): one photo each for hero and cards; cards crop them with object-position 79% / 90% so the whole figure shows. Pilates hero has its own fade (WLLNSS tume, 90%) from Figma | Square card photos cut heads off in the wide hero |
 | "Teised treeningud" | The other three treatments + the first repeated, so the row overflows like in Figma | Ken |
 | <1200px | Hero stacks back link → title → text → tag; "Kellele sobib?" and partner cards go full width; level boxes wrap on phones | Not designed |
 
@@ -138,6 +138,8 @@ the designer for mobile frames.
   few px lower.
 
 ## Open questions
+
+- Jooga card (yoga_2): the black card title and "Vaata lähemalt" sit on the dark wooden floor and are hard to read. Built as is.
 
 - Pilates hero (pilates_2): white studio wall behind white text — description, RECOVER tag and "Menüü" are hard to read. Ken: use as is for now, decide later (tone the photo / stronger fade).
 
