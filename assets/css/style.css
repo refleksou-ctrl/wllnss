@@ -551,7 +551,9 @@ section { position: relative; overflow: clip; }
 
 .asukoht { height: 720px; color: var(--c-white); }
 
-.asukoht__img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; }
+.asukoht__img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 0%; }
+/* location.webp (Ken, 2026-10-08): very wide photo, woman on the left, plain wall right.
+   Anchored to the top so wide screens (which crop top/bottom) keep her head. */
 .asukoht::after {
   content: "";
   position: absolute;
@@ -891,6 +893,7 @@ section { position: relative; overflow: clip; }
 
   /* asukoht */
   .asukoht::after { background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0) 70%); }
+  .asukoht__img { object-position: 25% 0%; }   /* narrow screens: keep her in the window instead of the empty wall */
   .asukoht__inner { min-height: 560px; align-items: flex-start; justify-content: flex-end; padding: 96px var(--gutter); }
   .asukoht__content { gap: 40px; }
   .asukoht__title { white-space: normal; }

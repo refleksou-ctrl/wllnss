@@ -87,6 +87,12 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | Line under "Mida oodata?" | 1px hele at the section bottom, from x144 to the screen's right edge (on wide screens it starts at the content edge; phones: at the side margin) | From the file (5605:5388); wide/phone behaviour is mine |
 | Detail "Teised treeningud" | Same as the homepage slider (tume, hele links) + 1px hele line above the footer | From the file |
 
+## Location photo (2026-10-08)
+
+| What | What I did | Why |
+|---|---|---|
+| Homepage location section | `location.webp` (Ken) replaces the interior render. Anchored to the top (wide screens crop top/bottom, keeps her head); phones crop at 25% across so she stays in view instead of the empty wall | Photo is very wide (2.36:1) with the subject on the left |
+
 ## Motion (no motion spec in the file)
 
 | What | What I did |
