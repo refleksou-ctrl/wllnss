@@ -684,6 +684,11 @@ section { position: relative; overflow: clip; }
    Pilates 5596:10233: 0.7 x 0.9 = 0.63.  Jooga 5596:10268: 1 x 0.3 = 0.3.  Others: 0.5. */
 .hero--pilates::after { background: linear-gradient(-89.87deg, rgba(72, 15, 12, 0) 0%, rgba(72, 15, 12, 0.63) 99.944%); }
 .hero--jooga::after   { background: linear-gradient(-89.87deg, rgba(72, 15, 12, 0) 0%, rgba(72, 15, 12, 0.3) 99.944%); }
+/* These two photos are less wide than the hero on most laptops, so the browser crops
+   top and bottom. Anchor them near the top so the crop comes off the floor, not the
+   head (Jooga) or the raised foot (Pilates). */
+.hero--jooga .hero__img   { object-position: 50% 10%; }
+.hero--pilates .hero__img { object-position: 50% 0%; }
 
 .detail__back { position: absolute; left: 159px; top: 106px; color: var(--c-white); }   /* arrow lines up with the title at x175 */
 
@@ -911,6 +916,8 @@ section { position: relative; overflow: clip; }
 
 @media (max-width: 700px) {
   .hero__img { object-position: 70% center; }
+  .hero--jooga .hero__img { object-position: 70% 10%; }
+  .hero--pilates .hero__img { object-position: 70% 0%; }
   .hero .canvas { padding-left: var(--gutter); }
   .social { display: none; }   /* no room beside the text on phones */
   .numbrid__row { gap: 8px 16px; }
