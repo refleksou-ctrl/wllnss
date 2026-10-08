@@ -139,7 +139,6 @@ the designer for mobile frames.
 
 ## Open questions
 
-- Jooga card (yoga_2): the black card title and "Vaata lähemalt" sit on the dark wooden floor and are hard to read. Built as is.
 
 - Pilates hero (pilates_2): white studio wall behind white text — description, RECOVER tag and "Menüü" are hard to read. Ken: use as is for now, decide later (tone the photo / stronger fade).
 
