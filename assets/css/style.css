@@ -336,6 +336,7 @@ section { position: relative; overflow: clip; }
   height: 437px;
   padding-top: 80px;
   background: var(--c-tume);
+  border-bottom: 1px solid var(--c-hele);   /* Figma: 1px hele stroke along the bottom (Ken, 2026-10-12) */
 }
 .numbrid__inner { display: flex; flex-direction: column; align-items: stretch; }
 
