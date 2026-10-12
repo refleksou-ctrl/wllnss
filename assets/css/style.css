@@ -599,22 +599,25 @@ section { position: relative; overflow: clip; }
 }
 
 /* ============================================================
-   FOOTER (2:298) — one WLLNSS tume block, 496 | 944 columns
+   FOOTER (5647:5353, 2026-10-12) — tume block, 279 tall: title centred
+   in the top 141, info row 912 wide centred below, 24px padding,
+   spread evenly and bottom-aligned.
    ============================================================ */
 
 .ftr { background: var(--c-tume); color: var(--c-hele); }
 
 .ftr__inner {
   max-width: var(--container);
-  height: 320px;
+  height: 279px;
   margin-inline: auto;
-  display: grid;
-  grid-template-columns: 496px 1fr;
-  grid-template-rows: 110px 210px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .ftr__title {
-  padding: 24px;
+  height: 141px;
+  padding-top: 59.5px;
   font-family: var(--font-display);
   font-weight: 500;
   font-size: var(--fs-h2);
@@ -623,15 +626,16 @@ section { position: relative; overflow: clip; }
 }
 
 .ftr__info {
-  grid-column: 2;
+  width: 912px;
+  height: 138px;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   padding: 24px;
   font-size: var(--fs-b2);
   line-height: var(--lh-b2);
   white-space: nowrap;
 }
-.ftr__info { grid-row: 2; align-items: flex-end; }
 .ftr__logo { width: 250px; height: 32px; }
 
 .ftr a { transition: color var(--dur-fast) var(--ease); }
@@ -939,9 +943,9 @@ section { position: relative; overflow: clip; }
   .koik__grid .ala { width: auto; }
 
   /* footer */
-  .ftr__inner { height: auto; grid-template-columns: 1fr; grid-template-rows: auto; padding: 24px var(--gutter) 32px; gap: 48px; }
-  .ftr__title, .ftr__info { grid-column: 1; grid-row: auto; padding: 0; }
-  .ftr__info { flex-wrap: wrap; justify-content: flex-start; align-items: flex-end; gap: 24px 48px; }
+  .ftr__inner { height: auto; align-items: flex-start; padding: 48px var(--gutter) 32px; gap: 48px; }
+  .ftr__title, .ftr__info { width: auto; height: auto; padding: 0; }
+  .ftr__info { flex-wrap: wrap; justify-content: flex-start; gap: 24px 48px; }
 }
 
 @media (max-width: 700px) {
