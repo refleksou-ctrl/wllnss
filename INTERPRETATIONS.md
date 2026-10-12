@@ -101,7 +101,7 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | Filters | KÕIK · Liikumine · Treening · Taastumine · Heaolu (were MOVE / RESET / RECOVER / CONNECT, same order) | From the file |
 | Detail-page category tags | Renamed the same way (MOVE→Liikumine, RESET→Treening, RECOVER→Taastumine, CONNECT→Heaolu) so a tag matches the filter it opens | **My call** — the tags in Figma still say MOVE etc. |
 | Footer | "Too oma heaolu Telliskivisse!", link row removed, "Telliskivi TLN OÜ" on one line | From the file |
-| Footer (5647:5353, later the same day) | 279 tall; one-line title centred; info row 912 wide, centred under it. Title now reads "Too oma ettevõte Telliskivisse!" | From the file; copy kept verbatim, see Open questions |
+| Footer (5647:5353, later the same day) | 279 tall; one-line title centred; info row 912 wide, centred under it. Title stays "Too oma heaolu Telliskivisse!" (Figma says "ettevõte"; Ken confirmed heaolu) | From the file, copy per Ken |
 | Numbers band | Tume (was hele), hele numbers, 1px hele line along the bottom, 437 tall, stats row 84 tall; the divider lines now show | From the file |
 | Intro | 482 tall (was 612) | From the file |
 | Homepage treatments | Content 37px higher, section 918 tall (desktop only; the detail-page "Teised treeningud" keeps the old spacing) | From the file |
@@ -159,8 +159,6 @@ the designer for mobile frames.
   few px lower.
 
 ## Open questions
-
-- Footer headline changed from "Too oma heaolu Telliskivisse!" to "Too oma ettevõte Telliskivisse!" (the main site's line). Built as in Figma; confirm it is intended for WLLNSS.
 
 - Personaaltreening hero (personal_2): the client's head sits where the long orange title bar ends (bar to ~x654 at 1440, head from ~x630) and the room is white, so "Menüü" is faint. A crop with a bit more room on the left would clear it.
 
