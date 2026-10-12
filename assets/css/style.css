@@ -324,8 +324,7 @@ section { position: relative; overflow: clip; }
 
 /* ============================================================
    NUMBRID — 5596:10132 (2026-10-12, 2nd pass): tume band, 437 tall, content
-   from 80px down. Stat boxes and the "1 WLLNSS" block outlined in hele
-   (1.785px inside stroke), 24px apart. Stats hele.
+   from 80px down, "1 WLLNSS" block 24px under the stats. Stats hele.
    Figma values are the old stats scaled ~1.43x, kept verbatim.
    ============================================================ */
 
@@ -350,7 +349,6 @@ section { position: relative; overflow: clip; }
   align-items: center;
   gap: 21.424px;
   padding: 28.565px 42.847px;
-  box-shadow: inset 0 0 0 1.785px var(--c-hele);   /* Figma inside stroke: doesn't change the box size */
   white-space: nowrap;
 }
 /* Lines 5605:5354 / :5358 — hele, now visible on the tume band */
@@ -379,7 +377,6 @@ section { position: relative; overflow: clip; }
 .numbrid__big {
   margin-top: 24px;
   padding: 28.565px 0;
-  box-shadow: inset 0 0 0 1.785px var(--c-hele);
   text-align: center;
   font-family: var(--font-display);
   font-weight: 500;
