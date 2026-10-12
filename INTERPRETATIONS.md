@@ -105,6 +105,7 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | Intro | 482 tall (was 612) | From the file |
 | Homepage treatments | Content 37px higher, section 918 tall (desktop only; the detail-page "Teised treeningud" keeps the old spacing) | From the file |
 | Line under "Mida oodata?" | Full width (was from x144) | From the file |
+| Kellele sobib levels | No divider lines; levels that don't apply get a 1px white outline + white text, the suitable one stays hele with black text; 8px apart, equal thirds. Phones: boxes size to the word and wrap | From the file (5596:10028); phone wrapping is mine |
 
 ## Motion (no motion spec in the file)
 

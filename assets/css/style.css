@@ -771,18 +771,22 @@ section { position: relative; overflow: clip; }
   line-height: var(--lh-h1);
   text-box: trim-both cap alphabetic;
 }
-.sobib__row { display: flex; gap: 16px; padding-top: 16px; }
+/* Levels (Kellele sobib 5596:10028, 2026-10-12): 8px apart, no divider lines.
+   Not-suitable levels: 1px white outline + white text; suitable: hele fill, black text. */
+.sobib__row { display: flex; align-items: flex-start; gap: 8px; padding-top: 16px; }
 .sobib__tase {
   position: relative;
   flex: 1 0 0;
+  min-width: 0;   /* equal thirds like Figma, even if a long word reaches into the padding */
   padding: 16px 24px;
+  border: 1px solid var(--c-white);
+  color: var(--c-white);
   text-align: center;
   font-size: var(--fs-menu);
   line-height: 13px;
   white-space: nowrap;
 }
-.sobib__tase + .sobib__tase::before { content: ""; position: absolute; left: -8.5px; top: 0; bottom: 0; width: 1px; background: var(--c-hele); }
-.sobib__tase.is-on { background: var(--c-hele); color: var(--c-black); }   /* the level(s) this treatment suits */
+.sobib__tase.is-on { border-color: var(--c-hele); background: var(--c-hele); color: var(--c-black); }   /* the level(s) this treatment suits; outline = fill colour so all three stay equal width */
 
 /* Partnerid (6:216) */
 .partnerid { height: 755px; background: var(--c-tume); color: var(--c-white); }
@@ -958,6 +962,5 @@ section { position: relative; overflow: clip; }
   .koik__grid .ala { width: auto; height: 400px; }
   .sobib { padding: 28px var(--gutter) 28px 20px; width: 100%; }
   .sobib__row { flex-wrap: wrap; }
-  .sobib__tase { padding: 16px; }
-  .sobib__tase + .sobib__tase::before { display: none; }
+  .sobib__tase { padding: 16px; flex: 1 1 auto; min-width: auto; }   /* phones: size to the word and wrap */
 }
