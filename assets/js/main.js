@@ -22,12 +22,25 @@
       setNav(!nav.classList.contains("is-open"));
     });
     document.addEventListener("click", function (e) {
-      if (!nav.contains(e.target)) setNav(false);
+      if (!nav.contains(e.target) || e.target.closest("a")) setNav(false);   // a menu link (e.g. the #tutvustus / #asukoht scroll links) also closes it
     });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") setNav(false);
     });
   }
+
+  /* --- menu scroll links (index.html#tutvustus / #asukoht) ----------
+     On the homepage itself, scroll to the section instead of reloading.
+     From other pages the link still opens the homepage at that section. */
+  Array.prototype.forEach.call(document.querySelectorAll('a[href^="index.html#"]'), function (a) {
+    a.addEventListener("click", function (e) {
+      var target = document.getElementById(a.getAttribute("href").split("#")[1]);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+      history.replaceState(null, "", "#" + target.id);
+    });
+  });
 
   /* --- sticky bar: light background as soon as the page scrolls - */
   var header = document.querySelector("[data-header]");

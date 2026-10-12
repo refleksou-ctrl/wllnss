@@ -7,7 +7,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
 
-html { scroll-behavior: smooth; overflow-x: clip; }   /* clip, not hidden: hidden breaks position: sticky */
+html { scroll-behavior: smooth; overflow-x: clip; scroll-padding-top: calc(var(--ticker-h) + 48px); }   /* clip, not hidden: hidden breaks sticky. scroll-padding: anchor links land below the sticky header */
 
 body {
   margin: 0;
@@ -30,7 +30,7 @@ button { font: inherit; }
    numbers below can be copied verbatim. (Chrome 133+, Safari 18.2+;
    Firefox ignores it and text sits a few px lower.) */
 .h1, .menu-drop a, .hero__text, .intro__text,
-.ala__title, .viis__title, .viis__text, .asukoht__title, .ftr__title, .ftr p, .ftr__nav a {
+.ala__title, .viis__title, .viis__text, .asukoht__title, .ftr__title, .ftr p {
   text-box: trim-both cap alphabetic;
 }
 
@@ -317,26 +317,32 @@ section { position: relative; overflow: clip; }
    INTRO — "Telliskivi – Web" 5605:5327 (was 2:207): tume, white text
    ============================================================ */
 
-.intro { height: 612px; background: var(--c-tume); color: var(--c-white); }
+.intro { height: 482px; background: var(--c-tume); color: var(--c-white); }   /* 482 since 2026-10-12 (was 612) */
 
 .intro__title { position: absolute; left: 144px; top: 188px; width: 597px; }
 .intro__text  { position: absolute; left: 261px; top: 337px; width: 393px; }
 
 /* ============================================================
-   NUMBRID — 5596:10132. Hele band, 80px top/bottom, content centred.
+   NUMBRID — 5596:10132 (2026-10-12 version): tume band, 437 tall, content
+   from 80px down, 1px hele line along the bottom. Stats hele.
    Figma values are the old stats scaled ~1.43x, kept verbatim.
    ============================================================ */
 
 .numbrid {
   display: flex;
   justify-content: center;
-  padding: 80px 0;
-  background: var(--c-hele);
+  align-items: flex-start;
+  box-sizing: border-box;
+  height: 437px;
+  padding-top: 80px;
+  background: var(--c-tume);
+  border-bottom: 1px solid var(--c-hele);
 }
 .numbrid__inner { display: flex; flex-direction: column; align-items: stretch; }
 
-/* 5605:5350 — stats, 1.785px lines centred in 14.282px gaps either side */
-.numbrid__row { display: flex; justify-content: center; gap: 30.349px; color: var(--c-tume); }
+/* 5605:5350 — stats row is 84px tall; each stat (124.6) overflows it evenly.
+   1.785px lines, 84 tall, centred in 14.282px gaps either side */
+.numbrid__row { display: flex; justify-content: center; align-items: center; height: 84px; gap: 30.349px; color: var(--c-hele); }
 .numbrid__stat {
   position: relative;
   display: flex;
@@ -346,13 +352,13 @@ section { position: relative; overflow: clip; }
   padding: 28.565px 42.847px;
   white-space: nowrap;
 }
-/* Lines 5605:5354 / :5358 are WLLNSS hele on the hele band, so they don't
-   show — copied as drawn, flagged in INTERPRETATIONS (Open questions). */
+/* Lines 5605:5354 / :5358 — hele, now visible on the tume band */
 .numbrid__stat + .numbrid__stat::before {
   content: "";
   position: absolute;
   left: -16.067px;
-  top: 0; bottom: 0;
+  top: calc(50% - 42px);
+  height: 84px;
   width: 1.785px;
   background: var(--c-hele);
 }
@@ -367,7 +373,7 @@ section { position: relative; overflow: clip; }
 .numbrid__label { font-size: 16px; line-height: 1.2; text-box: trim-both cap alphabetic; }
 
 /* 5605:5363 — "1 WLLNSS" 100px white, 28.565 above/below.
-   Orange bar 5605:5377 (589 x 59) sits 40.9px below the cap top and 51.5px
+   Orange bar 5605:5377 (589 x 59) sits 39.4px below the cap top and 51.5px
    wider than the text each side: drawn in em so it scales with the text. */
 .numbrid__big {
   padding: 28.565px 0;
@@ -384,7 +390,7 @@ section { position: relative; overflow: clip; }
   content: "";
   position: absolute;
   z-index: -1;
-  top: 0.409em;
+  top: 0.394em;
   left: -0.515em;
   right: -0.515em;
   height: 0.59em;
@@ -396,6 +402,16 @@ section { position: relative; overflow: clip; }
    ============================================================ */
 
 .treeningud { height: 955px; background: var(--c-tume); }   /* Figma 2:224, recoloured by Ken: tume bg, white title, hele links */
+/* Homepage only (5596:10137, 2026-10-12): content 36.9px higher, section 918.
+   Detail-page "Teised treeningud" (.teised) keeps the 955 layout. */
+@media (min-width: 1200px) {
+  .treeningud:not(.teised) { height: 918px; }
+  .treeningud:not(.teised) .bar { top: 133.1px; }
+  .treeningud:not(.teised) .treeningud__title { top: 151.1px; }
+  .treeningud:not(.teised) .treeningud__all { top: 141.1px; }
+  .treeningud:not(.teised) .slider { top: 289.1px; }
+  .treeningud:not(.teised) .slider__nav { top: 762.1px; }
+}
 
 .treeningud > .canvas {
   position: absolute;
@@ -606,7 +622,7 @@ section { position: relative; overflow: clip; }
   white-space: nowrap;
 }
 
-.ftr__nav, .ftr__info {
+.ftr__info {
   grid-column: 2;
   display: flex;
   justify-content: space-between;
@@ -615,7 +631,6 @@ section { position: relative; overflow: clip; }
   line-height: var(--lh-b2);
   white-space: nowrap;
 }
-.ftr__nav { align-items: flex-start; }
 .ftr__info { grid-row: 2; align-items: flex-end; }
 .ftr__logo { width: 250px; height: 32px; }
 
@@ -719,12 +734,12 @@ section { position: relative; overflow: clip; }
 
 /* Mida oodata / Kellele sobib ("Telliskivi – Web" 5596:10208): tume, white text */
 .mida { height: 580px; background: var(--c-tume); color: var(--c-white); }
-/* Line 5605:5388 — 1px hele along the bottom, from the content edge (x144)
-   to the right edge of the screen; separates it from the tume partners section */
+/* Line 5605:5388 — 1px hele along the bottom, full width (2026-10-12; was from x144);
+   separates it from the tume partners section */
 .mida::after {
   content: "";
   position: absolute;
-  left: calc(max(0px, (100% - var(--container)) / 2) + 144px);
+  left: 0;
   right: 0;
   bottom: 0;
   height: 1px;
@@ -863,8 +878,8 @@ section { position: relative; overflow: clip; }
   .intro__title, .intro__text { position: relative; left: auto; top: auto; right: auto; }
   .intro__title { width: auto; max-width: 597px; padding-right: var(--gutter); }
   .intro__text { width: auto; max-width: 393px; margin: 40px 0 0 min(117px, 10vw); padding-right: var(--gutter); }
-  .numbrid { padding: 64px var(--gutter); }
-  .numbrid__row { flex-wrap: wrap; row-gap: 0; }
+  .numbrid { height: auto; padding: 64px var(--gutter); }
+  .numbrid__row { flex-wrap: wrap; row-gap: 0; height: auto; }
   .numbrid__big { font-size: 80px; }
 
   /* treeningud */
@@ -909,7 +924,6 @@ section { position: relative; overflow: clip; }
   .mida__title, .partnerid__title { padding-right: var(--gutter); width: auto; }
   .mida__text { width: auto; max-width: 393px; margin: 40px 0 0 min(117px, 10vw); padding-right: var(--gutter); }
   .sobib { margin-top: 64px; }
-  .mida::after { left: var(--gutter); }
   .sobib__title { width: auto; }
   .partnerid__row { margin-top: 64px; padding-right: var(--gutter); flex-wrap: wrap; }
   .partner { width: 100%; max-width: 567px; }
@@ -922,8 +936,7 @@ section { position: relative; overflow: clip; }
 
   /* footer */
   .ftr__inner { height: auto; grid-template-columns: 1fr; grid-template-rows: auto; padding: 24px var(--gutter) 32px; gap: 48px; }
-  .ftr__title, .ftr__nav, .ftr__info { grid-column: 1; grid-row: auto; padding: 0; }
-  .ftr__nav { flex-wrap: wrap; justify-content: flex-start; gap: 20px 32px; }
+  .ftr__title, .ftr__info { grid-column: 1; grid-row: auto; padding: 0; }
   .ftr__info { flex-wrap: wrap; justify-content: flex-start; align-items: flex-end; gap: 24px 48px; }
 }
 

@@ -93,6 +93,19 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 |---|---|---|
 | Homepage location section | `location.webp` (Ken) replaces the interior render. Anchored to the top (wide screens crop top/bottom, keeps her head); phones crop at 25% across so she stays in view instead of the empty wall | Photo is very wide (2.36:1) with the subject on the left |
 
+## Update 2026-10-12 (Figma "Telliskivi – Web" 5581:3198 + Ken's message)
+
+| What | What I did | Why |
+|---|---|---|
+| Menu | Tutvustus (→ homepage "Üks koht" section) · Treeningud ja teenused (→ treeningud.html, orange there) · Asukoht (→ homepage location section) · Telliskivi TLN (telliskivitln.ee, new tab). On the homepage the two section links scroll smoothly without reloading and land just below the sticky header; from other pages they open the homepage at that section. The menu closes after a click | Ken's message — the menu isn't drawn in Figma |
+| Filters | KÕIK · Liikumine · Treening · Taastumine · Heaolu (were MOVE / RESET / RECOVER / CONNECT, same order) | From the file |
+| Detail-page category tags | Renamed the same way (MOVE→Liikumine, RESET→Treening, RECOVER→Taastumine, CONNECT→Heaolu) so a tag matches the filter it opens | **My call** — the tags in Figma still say MOVE etc. |
+| Footer | "Too oma heaolu Telliskivisse!", link row removed, "Telliskivi TLN OÜ" on one line | From the file |
+| Numbers band | Tume (was hele), hele numbers, 1px hele line along the bottom, 437 tall, stats row 84 tall; the divider lines now show | From the file |
+| Intro | 482 tall (was 612) | From the file |
+| Homepage treatments | Content 37px higher, section 918 tall (desktop only; the detail-page "Teised treeningud" keeps the old spacing) | From the file |
+| Line under "Mida oodata?" | Full width (was from x144) | From the file |
+
 ## Motion (no motion spec in the file)
 
 | What | What I did |
@@ -150,7 +163,6 @@ the designer for mobile frames.
 
 - Pilates hero (pilates_2): white studio wall behind white text — description, RECOVER tag and "Menüü" are hard to read. Ken: use as is for now, decide later (tone the photo / stronger fade).
 
-- Numbers band: the divider lines between the three stats are WLLNSS hele on the hele background, so they're invisible. Built as drawn. Intended, or should they be tume?
 
 - Is the "1 WLLNSS" heading in the stats box final copy?
 - Real social media URLs?
