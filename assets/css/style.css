@@ -395,7 +395,7 @@ section { position: relative; overflow: clip; }
   left: -0.515em;
   right: -0.515em;
   height: 0.59em;
-  background: var(--c-orange);
+  background: var(--c-hele);   /* Figma 5605:5377: WLLNSS hele (was oranž until 2026-10-12) */
 }
 
 /* ============================================================
