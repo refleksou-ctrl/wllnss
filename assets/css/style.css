@@ -471,16 +471,17 @@ section { position: relative; overflow: clip; }
   max-width: none;
   transition: transform 600ms var(--ease-out);
 }
-.ala__img--pilates  { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 79% 50%; }   /* pilates_2: one wide photo for card + hero; card window centred on her (raised foot to head) */
-.ala__img--reformer { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }   /* reformer_2: card window on the springs */
-.ala__img--yoga     { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 90% 50%; }   /* yoga_2: one wide photo for card + hero; card window centred on her pose */
-.ala__img--personaaltreening { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 86% 50%; }   /* personal_2: one wide photo for card + hero; card window holds both people */
+.ala__img--pilates  { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 77% 50%; }   /* pilates_3 (2026-10-13): one wide photo for card + hero; card window holds her from back foot to hands */
+.ala__img--reformer { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 25% 50%; }   /* reformer_3: card window on the headrest and shoulder blocks */
+.ala__img--yoga     { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }   /* yoga_3: still life, card window on the mat and blocks */
+.ala__img--personaaltreening { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 50%; }   /* personal_3: card window between client and trainer */
 .ala:hover .ala__img { transform: scale(1.03); }
 
 .ala__body { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 15px; }
 /* Reformer card (reformer_2 is a dark photo): white fade from the bottom so the black
-   title and "Vaata lähemalt" stay readable (Ken, 2026-10-08). Other cards unchanged. */
-.ala:has(.ala__img--reformer)::after {
+   title and "Vaata lähemalt" stay readable (Ken, 2026-10-08). Jooga got the same fade
+   with yoga_3 (dark green mat under the title, 2026-10-13). Other cards unchanged. */
+.ala:has(.ala__img--reformer)::after, .ala:has(.ala__img--yoga)::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -768,13 +769,12 @@ section { position: relative; overflow: clip; }
 }
 .sobib__title {
   width: 501px;
-  padding: 16px 0 24px;                      /* Figma: block py16, 8px gap, line 10:167 */
-  border-bottom: 1px solid var(--c-hele);
+  padding: 16px 0;                           /* 5596:10028 (2026-10-13): py16, no line under it, 36px */
   text-align: center;
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: var(--fs-h1);
-  line-height: var(--lh-h1);
+  font-size: 36px;
+  line-height: 1.1;
   text-box: trim-both cap alphabetic;
 }
 /* Levels (Kellele sobib 5596:10028, 2026-10-12): 8px apart, no divider lines.

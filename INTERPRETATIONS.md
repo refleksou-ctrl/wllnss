@@ -108,6 +108,17 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | Line under "Mida oodata?" | Full width (was from x144) | From the file |
 | Kellele sobib levels | No divider lines; levels that don't apply get a 1px white outline + white text, the suitable one stays hele with black text; 8px apart, equal thirds. Phones: boxes size to the word and wrap | From the file (5596:10028); phone wrapping is mine |
 
+## Update 2026-10-13 (new photos, Kellele sobib, heading)
+
+| What | Built | Source |
+|---|---|---|
+| Treatment cards (all pages) | New photos pilates_3 / reformer_3 / yoga_3 / personal_3 from `_source/WLLNSS_*.png`; crops chosen by me (object-position) | Ken's photos, crop mine |
+| Jooga card | Same white bottom fade as Reformer: the dark green mat sits under the black title | Mine, Ken's Reformer fix reused |
+| Detail heroes | Pilates hero uses the new photo (subject on the right, like before). Reformer, Jooga, Personaaltreening heroes keep the earlier wide photos: the new ones put the subject right behind the white title | Mine, ask Ken |
+| WLLNSS_joutreening.png | Not used: there is no Jõutreening card or page | Ask Ken |
+| Kellele sobib (5596:10028) | Title 36px, no line under it, centred | From the file |
+| Detail page slider heading | "Teised treeningud" → "Treeningud ja teenused" | Ken |
+
 ## Motion (no motion spec in the file)
 
 | What | What I did |
