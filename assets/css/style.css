@@ -479,9 +479,9 @@ section { position: relative; overflow: clip; }
 
 .ala__body { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 15px; }
 /* Reformer card (reformer_2 is a dark photo): white fade from the bottom so the black
-   title and "Vaata lähemalt" stay readable (Ken, 2026-10-08). Jooga got the same fade
-   with yoga_3 (dark green mat under the title, 2026-10-13). Other cards unchanged. */
-.ala:has(.ala__img--reformer)::after, .ala:has(.ala__img--yoga)::after {
+   title and "Vaata lähemalt" stay readable (Ken, 2026-10-08). Since the new photos
+   (2026-10-13) every card has it (Ken). */
+.ala::after {
   content: "";
   position: absolute;
   inset: 0;
