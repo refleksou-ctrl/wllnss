@@ -232,7 +232,7 @@ section { position: relative; overflow: clip; }
 .nupp--hele { background: var(--c-hele); }
 .nupp--hele:hover { background: var(--c-hele-hover); }
 
-/* tume fill, white label — BRONEERI TREENING on the hele partner card (6:269) */
+/* tume fill, white label — BRONEERI on the hele partner card (6:269) */
 .nupp--tume { background: var(--c-tume); color: var(--c-white); }
 .nupp--tume:hover { background: var(--c-tume-hover); }
 
