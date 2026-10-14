@@ -114,7 +114,7 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | What | Built | Source |
 |---|---|---|
 | Treatment cards (all pages) | New photos pilates_3 / reformer_3 / yoga_3 / personal_3 from `_source/WLLNSS_*.png`; crops chosen by me (object-position) | Ken's photos, crop mine |
-| All treatment cards | White bottom fade (the Reformer one) on every card, so the black title reads on the new photos | Ken |
+| All treatment cards | No fade; card title and "Vaata lähemalt" are white (Figma: black), readable on the clay photos (2026-10-14) | Ken |
 | Detail heroes | All four use the new photos (Ken). On Reformer, Jooga and Personaaltreening the subject sits behind the title; readability relies on the existing brown fade | Ken |
 | WLLNSS_joutreening.png | Not used: there is no Jõutreening card or page | Ask Ken |
 | Kellele sobib (5596:10028) | Title 36px, no line under it, centred | From the file |
@@ -133,7 +133,7 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 
 | What | Built | Source |
 |---|---|---|
-| All cards + detail heroes | pilates_4 / reformer_4 / yoga_4 / personaaltreening_4 (clay studio set Ken generated). Crops (object-position) chosen by me; cards keep the white bottom fade | Ken's photos, crops mine |
+| All cards + detail heroes | pilates_4 / reformer_4 / yoga_4 / personaaltreening_4 (clay studio set Ken generated). Crops (object-position) chosen by me; no fade, white card text | Ken's photos, crops mine |
 | Jooga hero fade | 0.5 instead of Figma 0.3: the description sat on the bright window light | Mine |
 
 ## Motion (no motion spec in the file)

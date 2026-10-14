@@ -494,7 +494,7 @@ section { position: relative; overflow: clip; }
   overflow: hidden;
   scroll-snap-align: start;
   background: var(--c-lightgrey);
-  color: var(--c-black);   /* Figma: card text is always black, whatever the section colour */
+  color: var(--c-white);   /* white since the clay photos (Ken, 2026-10-14; Figma black). No fade on the photo */
 }
 
 /* Image crops copied from the Figma fills — same source files */
@@ -510,23 +510,13 @@ section { position: relative; overflow: clip; }
 .ala:hover .ala__img { transform: scale(1.03); }
 
 .ala__body { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 15px; }
-/* Reformer card (reformer_2 is a dark photo): white fade from the bottom so the black
-   title and "Vaata lähemalt" stay readable (Ken, 2026-10-08). Since the new photos
-   (2026-10-13) every card has it (Ken). */
-.ala::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.6) 30%, rgba(255, 255, 255, 0) 60%);
-  pointer-events: none;
-}
 .ala__title {
   font-family: var(--font-display);
   font-weight: 500;
   font-size: var(--fs-h2);
   line-height: var(--lh-h2);
 }
-.ala__nupp { width: 100%; }
+.ala__nupp { width: 100%; color: inherit; }   /* white with the card text */
 .ala:hover .ala__nupp { background: var(--c-btn-hover); }
 .ala:hover .ala__nupp .nupp__arrow { transform: translateX(4px); }
 
