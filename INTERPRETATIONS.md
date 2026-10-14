@@ -114,7 +114,7 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | What | Built | Source |
 |---|---|---|
 | Treatment cards (all pages) | New photos pilates_3 / reformer_3 / yoga_3 / personal_3 from `_source/WLLNSS_*.png`; crops chosen by me (object-position) | Ken's photos, crop mine |
-| All treatment cards | Card title and "Vaata lähemalt" white (Figma: black); the heroes' brown fade (#480F0C, 0.5 at the bottom → 0 at 60% height) behind them (2026-10-14) | Ken |
+| All treatment cards | Card title and "Vaata lähemalt" white (Figma: black); the heroes' brown fade (#480F0C, 0.65 at the bottom → 0 at 60% height) behind them (2026-10-14) | Ken |
 | Detail heroes | All four use the new photos (Ken). On Reformer, Jooga and Personaaltreening the subject sits behind the title; readability relies on the existing brown fade | Ken |
 | WLLNSS_joutreening.png | Not used: there is no Jõutreening card or page | Ask Ken |
 | Kellele sobib (5596:10028) | Title 36px, no line under it, centred | From the file |
