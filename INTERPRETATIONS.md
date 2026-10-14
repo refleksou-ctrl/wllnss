@@ -180,6 +180,8 @@ the designer for mobile frames.
 
 ## Open questions
 
+- Figma (2026-10-14): client changes are in the file, but the new text (menu links in Menüüriba + Rippmenüü, homepage intro) is in **Inter** because the Figma tool can't load Atlas Grotesk. Layers are named "[Atlas Grotesk 16 / b1]"; Ken swaps the font. Old texts are hidden, not deleted.
+
 - Toitlustus menu link: where does it go (PDF or page)? Currently #.
 
 - Personaaltreening hero (personal_2): the client's head sits where the long orange title bar ends (bar to ~x654 at 1440, head from ~x630) and the room is white, so "Menüü" is faint. A crop with a bit more room on the left would clear it.
