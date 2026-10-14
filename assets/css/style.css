@@ -143,14 +143,14 @@ section { position: relative; overflow: clip; }
 .hdr__right { display: flex; align-items: center; gap: 24px; }
 
 /* Desktop menu in the bar (client 2026-10-14, not in Figma): main site's centre links,
-   Atlas 16 centred in the bar, 16px apart (main site ~12px).
+   Atlas 16 centred in the bar, 48px apart (now in Figma).
    Burger + dropdown only below 1200. */
 .hdr__links {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 16px;
+  gap: 48px;   /* Figma Menüüriba 'Lingid' (Ken, 2026-10-14) */
 }
 .hdr__links a { position: relative; font-size: var(--fs-b1); line-height: var(--lh-b1); white-space: nowrap; transition: color var(--dur-fast) var(--ease); }
 .hdr__links a::after {
