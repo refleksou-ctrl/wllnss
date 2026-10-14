@@ -163,8 +163,20 @@ section { position: relative; overflow: clip; }
   transform-origin: right;
   transition: transform var(--dur) var(--ease-out);
 }
-/* Orange is unreadable on the tume pages, so hover/current = an underline in the text colour */
-.hdr__links a:hover::after, .hdr__links a[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
+/* Hover = underline in the text colour (orange text is unreadable on the tume pages) */
+.hdr__links a:hover::after { transform: scaleX(1); transform-origin: left; }
+/* Current page = main-site Menyy 5686:5482: 40x4 orange bar centred under the link,
+   flush with the bar's bottom like the EST marker (link top 12.8 + 31.2 = 44 of 48) */
+.hdr__links a[aria-current="page"]::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 31.2px;
+  width: 40px;
+  height: 4px;
+  margin-left: -20px;
+  background: var(--c-orange);
+}
 @media (min-width: 1200px) { .hdr__right, .hdr .menu-drop { display: none; } }
 @media (max-width: 1199px) { .hdr__links { display: none; } }
 

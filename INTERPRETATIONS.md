@@ -123,7 +123,7 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 
 | What | Built | Source |
 |---|---|---|
-| Menu in the bar | From 1200px the five links sit centred in the menu bar (Atlas 16, 48px apart as Ken set in Figma); the Menüü burger and dropdown are gone there. Below 1200 the burger stays. Hover / current page = thin underline in the text colour (orange was unreadable on the tume pages) | Client asked, styling mine (Ken: "like main site") |
+| Menu in the bar | From 1200px the five links sit centred in the menu bar (Atlas 16, 48px apart as Ken set in Figma); the Menüü burger and dropdown are gone there. Below 1200 the burger stays. Hover = thin underline in the text colour (orange was unreadable on the tume pages); current page = 40×4 orange bar under the link, from the main-site Menyy 5686:5482 | Client asked, styling mine (Ken: "like main site") |
 | Toitlustus | New menu item after Treeningud ja teenused, links to # for now | Client; link / PDF still to come |
 | Filters | Switched off (`--filters: none` in tokens.css). Category tags on detail pages are gone with them | Client: too few treatments to need filters |
 | Intro text | Client text, shortened to two paragraphs ("WLLNSS on kaasaegne…" + "See ei ole spordiklubi…"); section 558 tall instead of Figma 482 so the space under the text stays the same | Client text, cut by Ken's choice |
