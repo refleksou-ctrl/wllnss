@@ -142,6 +142,32 @@ section { position: relative; overflow: clip; }
 
 .hdr__right { display: flex; align-items: center; gap: 24px; }
 
+/* Desktop menu in the bar (client 2026-10-14, not in Figma): main site's centre links,
+   Atlas 16 centred in the bar, 16px apart (main site ~12px).
+   Burger + dropdown only below 1200. */
+.hdr__links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+}
+.hdr__links a { position: relative; font-size: var(--fs-b1); line-height: var(--lh-b1); white-space: nowrap; transition: color var(--dur-fast) var(--ease); }
+.hdr__links a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -3px;
+  width: 100%; height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--dur) var(--ease-out);
+}
+/* Orange is unreadable on the tume pages, so hover/current = an underline in the text colour */
+.hdr__links a:hover::after, .hdr__links a[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
+@media (min-width: 1200px) { .hdr__right, .hdr .menu-drop { display: none; } }
+@media (max-width: 1199px) { .hdr__links { display: none; } }
+
 .hdr__menu-btn {
   display: flex;
   align-items: center;
@@ -317,10 +343,11 @@ section { position: relative; overflow: clip; }
    INTRO — "Telliskivi – Web" 5605:5327 (was 2:207): tume, white text
    ============================================================ */
 
-.intro { height: 482px; background: var(--c-tume); color: var(--c-white); }   /* 482 since 2026-10-12 (was 612) */
+.intro { height: 558px; background: var(--c-tume); color: var(--c-white); }   /* Figma 482; +76 for the client text 2026-10-14, keeps Figma's 58px under the text */
 
 .intro__title { position: absolute; left: 144px; top: 188px; width: 597px; }
 .intro__text  { position: absolute; left: 261px; top: 337px; width: 393px; }
+.intro__text p + p { margin-top: 1em; }   /* client text 2026-10-14: two paragraphs */
 
 /* ============================================================
    NUMBRID — 5596:10132 (2026-10-12, 2nd pass): tume band, 437 tall, content

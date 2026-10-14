@@ -54,7 +54,7 @@
      flex = treatment filters on (Kõik treeningud page) and the category
      tag on detail pages. none = both gone; the pages then match Figma
      without filters. This one word is the only thing to change. */
-  --filters: flex;
+  --filters: none;   /* off since 2026-10-14: client says there are too few treatments to need filters */
 
   /* --- layout ---------------------------------------------- */
   --container: 1440px;

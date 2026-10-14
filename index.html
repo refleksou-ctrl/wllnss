@@ -39,6 +39,15 @@
         <a href="#" lang="en">ENG</a>
       </nav>
 
+      <!-- Client 2026-10-14: menu out of the burger into the bar on desktop, like the
+           main site's centre links (telliskivitln.ee). Not in Figma. -->
+      <nav class="hdr__links" aria-label="Peamen&uuml;&uuml;">
+        <a href="index.html#tutvustus">Tutvustus</a>
+        <a href="treeningud.html" data-page="treeningud">Treeningud ja teenused</a>
+        <a href="#">Toitlustus</a>   <!-- placeholder: client sends the link / PDF -->
+        <a href="index.html#asukoht">Asukoht</a>
+        <a href="https://telliskivitln.ee" target="_blank" rel="noopener">Telliskivi TLN</a>
+      </nav>
 
       <div class="hdr__right">
         <button class="hdr__menu-btn" data-burger aria-expanded="false" aria-controls="site-nav">
@@ -51,9 +60,10 @@
 
     <!-- Open menu — 3:1027 (transparent, blur only) / 3:1247 (scrolled, 90% light) -->
     <nav class="menu-drop" id="site-nav" data-nav>
-      <!-- Menu (Ken, 2026-10-12) -->
+      <!-- Menu (Ken, 2026-10-12; Toitlustus added 2026-10-14) — phones/tablets only, desktop has the links in the bar -->
       <a href="index.html#tutvustus">Tutvustus</a>
       <a href="treeningud.html" data-page="treeningud">Treeningud ja teenused</a>
+      <a href="#">Toitlustus</a>   <!-- placeholder: client sends the link / PDF -->
       <a href="index.html#asukoht">Asukoht</a>
       <a href="https://telliskivitln.ee" target="_blank" rel="noopener">Telliskivi TLN</a>
     </nav>
@@ -90,7 +100,10 @@
       <div class="canvas">
         <span class="bar bar--orange" style="--bar-w: 393px" data-reveal aria-hidden="true"></span>
         <h2 class="intro__title h1" data-reveal>&Uuml;ks koht. Mitu viisi, kuidas end h&auml;sti tunda.</h2>
-        <p class="intro__text" data-reveal data-reveal-delay="80">WLLNSS ei ole spordiklubi v&otilde;i &uuml;ksik treeningstuudio. Keskuses tegutsevad erinevad partnerid, kelle teenuseid &uuml;hendab &uuml;ks keskkond ja &uuml;hine heaolu kontseptsioon.</p>
+        <div class="intro__text" data-reveal data-reveal-delay="80">
+          <p>WLLNSS on kaasaegne ja urbanistlik heaolukeskus. Koht, kus liikumine, taastumine ja aeg iseendale mahuvad argip&auml;eva sisse.</p>
+          <p>See ei ole spordiklubi ega ka treeningstuudio. WLLNSS toob &uuml;he katuse alla erinevad partnerid ja praktikad, mida &uuml;hendab &uuml;ks lihtne m&otilde;te &ndash; tunda end oma kehas ja oma p&auml;evas paremini.</p>
+        </div>
       </div>
     </section>
 

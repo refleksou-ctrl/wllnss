@@ -119,6 +119,15 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | Kellele sobib (5596:10028) | Title 36px, no line under it, centred | From the file |
 | Detail page slider heading | "Teised treeningud" → "Treeningud ja teenused" | Ken |
 
+## Client feedback 2026-10-14
+
+| What | Built | Source |
+|---|---|---|
+| Menu in the bar | From 1200px the five links sit centred in the menu bar (main site's centre-link style: Atlas 16, 16px apart); the Menüü burger and dropdown are gone there. Below 1200 the burger stays. Hover / current page = thin underline in the text colour (orange was unreadable on the tume pages) | Client asked, styling mine (Ken: "like main site") |
+| Toitlustus | New menu item after Treeningud ja teenused, links to # for now | Client; link / PDF still to come |
+| Filters | Switched off (`--filters: none` in tokens.css). Category tags on detail pages are gone with them | Client: too few treatments to need filters |
+| Intro text | Client text, shortened to two paragraphs ("WLLNSS on kaasaegne…" + "See ei ole spordiklubi…"); section 558 tall instead of Figma 482 so the space under the text stays the same | Client text, cut by Ken's choice |
+
 ## Motion (no motion spec in the file)
 
 | What | What I did |
@@ -170,6 +179,8 @@ the designer for mobile frames.
   few px lower.
 
 ## Open questions
+
+- Toitlustus menu link: where does it go (PDF or page)? Currently #.
 
 - Personaaltreening hero (personal_2): the client's head sits where the long orange title bar ends (bar to ~x654 at 1440, head from ~x630) and the room is white, so "Menüü" is faint. A crop with a bit more room on the left would clear it.
 
