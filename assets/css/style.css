@@ -503,10 +503,10 @@ section { position: relative; overflow: clip; }
   max-width: none;
   transition: transform 600ms var(--ease-out);
 }
-.ala__img--pilates  { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 77% 50%; }   /* pilates_3 (2026-10-13): one wide photo for card + hero; card window holds her from back foot to hands */
-.ala__img--reformer { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 25% 50%; }   /* reformer_3: card window on the headrest and shoulder blocks */
-.ala__img--yoga     { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }   /* yoga_3: still life, card window on the mat and blocks */
-.ala__img--personaaltreening { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 50%; }   /* personal_3: card window between client and trainer */
+.ala__img--pilates  { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 90% 50%; }   /* pilates_4 (2026-10-14): card window on her, window wall cut off */
+.ala__img--reformer { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 100% 50%; }   /* reformer_4: card window on her and the machine's right half */
+.ala__img--yoga     { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 100% 50%; }   /* yoga_4: card window on her lunge */
+.ala__img--personaaltreening { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 100% 50%; }   /* personaaltreening_4: card window on trainer and client */
 .ala:hover .ala__img { transform: scale(1.03); }
 
 .ala__body { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 15px; }
@@ -747,13 +747,13 @@ section { position: relative; overflow: clip; }
    as the default; end opacity = stop alpha x layer opacity.
    Pilates 5596:10233: 0.7 x 0.9 = 0.63.  Jooga 5596:10268: 1 x 0.3 = 0.3.  Others: 0.5. */
 .hero--pilates::after { background: linear-gradient(-89.87deg, rgba(72, 15, 12, 0) 0%, rgba(72, 15, 12, 0.63) 99.944%); }
-.hero--jooga::after   { background: linear-gradient(-89.87deg, rgba(72, 15, 12, 0) 0%, rgba(72, 15, 12, 0.3) 99.944%); }
+.hero--jooga::after   { background: linear-gradient(-89.87deg, rgba(72, 15, 12, 0) 0%, rgba(72, 15, 12, 0.5) 99.944%); }   /* 0.5 since yoga_4 (2026-10-14): Figma 0.3 was for the darker old photo; text sat on the window light */
 /* These two photos are less wide than the hero on most laptops, so the browser crops
    top and bottom. Anchor them near the top so the crop comes off the floor, not the
    head (Jooga, Personaaltreening) or the raised foot (Pilates). */
 .hero--jooga .hero__img   { object-position: 50% 10%; }
-.hero--pilates .hero__img { object-position: 50% 0%; }
-.hero--personaal .hero__img { object-position: 50% 10%; }
+.hero--pilates .hero__img { object-position: 50% 50%; }
+.hero--personaal .hero__img { object-position: 50% 40%; }
 
 .detail__back { position: absolute; left: 159px; top: 106px; color: var(--c-white); }   /* arrow lines up with the title at x175 */
 
@@ -984,9 +984,10 @@ section { position: relative; overflow: clip; }
 
 @media (max-width: 700px) {
   .hero__img { object-position: 70% center; }
-  .hero--jooga .hero__img { object-position: 70% 10%; }
-  .hero--pilates .hero__img { object-position: 70% 0%; }
-  .hero--personaal .hero__img { object-position: 70% 10%; }
+  .hero--jooga .hero__img { object-position: 80% 10%; }
+  .hero--pilates .hero__img { object-position: 75% 50%; }
+  .hero--personaal .hero__img { object-position: 80% 40%; }
+  .hero--detail .hero__img:where([src*="reformer"]) { object-position: 80% center; }
   .hero .canvas { padding-left: var(--gutter); }
   .social { display: none; }   /* no room beside the text on phones */
   .numbrid__row { gap: 8px 16px; }

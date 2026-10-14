@@ -129,6 +129,13 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | Filters | Switched off (`--filters: none` in tokens.css). Category tags on detail pages are gone with them | Client: too few treatments to need filters |
 | Intro text | Client text, shortened to two paragraphs ("WLLNSS on kaasaegne…" + "See ei ole spordiklubi…"); section 558 tall instead of Figma 482 so the space under the text stays the same | Client text, cut by Ken's choice |
 
+## Photos round 4 (2026-10-14)
+
+| What | Built | Source |
+|---|---|---|
+| All cards + detail heroes | pilates_4 / reformer_4 / yoga_4 / personaaltreening_4 (clay studio set Ken generated). Crops (object-position) chosen by me; cards keep the white bottom fade | Ken's photos, crops mine |
+| Jooga hero fade | 0.5 instead of Figma 0.3: the description sat on the bright window light | Mine |
+
 ## Motion (no motion spec in the file)
 
 | What | What I did |
