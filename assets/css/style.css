@@ -504,7 +504,7 @@ section { position: relative; overflow: clip; }
   transition: transform 600ms var(--ease-out);
 }
 .ala__img--pilates  { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 90% 50%; }   /* pilates_4 (2026-10-14): card window on her, window wall cut off */
-.ala__img--reformer { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 100% 50%; }   /* reformer_4: card window on her and the machine's right half */
+.ala__img--reformer { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 100% 50%; }   /* reformer_5 (man, 2026-10-14): card window on him and the machine's right half */
 .ala__img--yoga     { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 100% 50%; }   /* yoga_4: card window on her lunge */
 .ala__img--personaaltreening { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 100% 50%; }   /* personaaltreening_4: card window on trainer and client */
 .ala:hover .ala__img { transform: scale(1.03); }
