@@ -135,6 +135,7 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 |---|---|---|
 | All cards + detail heroes | pilates_4 / reformer_4 / yoga_4 / personaaltreening_4 (clay studio set Ken generated). Crops (object-position) chosen by me; no fade, white card text | Ken's photos, crops mine |
 | Jooga hero fade | 0.5 instead of Figma 0.3: the description sat on the bright window light | Mine |
+| Figma (2026-10-14) | Round-4 photos in the card component (8 variants, same crops as the site, white text, 65% brown bottom fade) and the four detail hero PILT frames; Jooga hero fade layer 0.5 | Synced from the site |
 
 ## Motion (no motion spec in the file)
 
