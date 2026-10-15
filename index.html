@@ -44,7 +44,7 @@
       <nav class="hdr__links" aria-label="Peamen&uuml;&uuml;">
         <a href="index.html#tutvustus">Tutvustus</a>
         <a href="treeningud.html" data-page="treeningud">Treeningud ja teenused</a>
-        <a href="#">Toitlustus</a>   <!-- placeholder: client sends the link / PDF -->
+        <a href="index.html#toitlustus">Toitlustus</a>
         <a href="index.html#asukoht">Asukoht</a>
         <a href="https://telliskivitln.ee" target="_blank" rel="noopener">Telliskivi TLN</a>
       </nav>
@@ -63,7 +63,7 @@
       <!-- Menu (Ken, 2026-10-12; Toitlustus added 2026-10-14) — phones/tablets only, desktop has the links in the bar -->
       <a href="index.html#tutvustus">Tutvustus</a>
       <a href="treeningud.html" data-page="treeningud">Treeningud ja teenused</a>
-      <a href="#">Toitlustus</a>   <!-- placeholder: client sends the link / PDF -->
+      <a href="index.html#toitlustus">Toitlustus</a>
       <a href="index.html#asukoht">Asukoht</a>
       <a href="https://telliskivitln.ee" target="_blank" rel="noopener">Telliskivi TLN</a>
     </nav>
@@ -217,6 +217,21 @@
     </section>
 
     <!-- ASUKOHT — Figma 2:289 -->
+    <!-- TOITLUSTUS — client text 2026-10-15, not in Figma. Layout borrowed from
+         "Mida oodata?" (title + bar, text indented 117px) + the hele button. -->
+    <section class="toit" id="toitlustus">
+      <div class="canvas">
+        <span class="bar bar--orange" style="--bar-w: 393px" data-reveal aria-hidden="true"></span>
+        <h2 class="toit__title h1" data-reveal>Toitlustus</h2>
+        <div class="toit__text" data-reveal data-reveal-delay="80">
+          <p>Hea enesetunne algab ka heast toidust.</p>
+          <p>WLLNSS kohvikus saad nautida maitsvaid ja tasakaalustatud valikuid, mis annavad energiat tegusaks p&auml;evaks v&otilde;i aitavad p&auml;rast treeningut m&otilde;nusalt taastuda.</p>
+          <p>Olgu selleks hommikukohv, kerge eine, kosutav l&otilde;una v&otilde;i lihtsalt hetk iseendale &ndash; siin on alati p&otilde;hjust aeg maha v&otilde;tta ja midagi head nautida.</p>
+        </div>
+        <a class="nupp nupp--hele toit__nupp" href="#" data-reveal data-reveal-delay="120"><svg class="nupp__arrow" aria-hidden="true"><use href="#ic-nool"/></svg>VAATA MEN&Uuml;&Uuml;D</a>   <!-- placeholder: menu PDF to come -->
+      </div>
+    </section>
+
     <section class="asukoht" id="asukoht">
       <img class="asukoht__img" src="assets/img/location.webp" alt="" loading="lazy">
       <div class="asukoht__inner">

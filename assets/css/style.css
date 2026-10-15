@@ -598,6 +598,16 @@ section { position: relative; overflow: clip; }
    ASUKOHT (2:289)
    ============================================================ */
 
+/* TOITLUSTUS (client 2026-10-15, not in Figma): "Mida oodata?" layout — title at
+   x144 / cap y188, text 117px further in and 63px under the title (= Mida y285),
+   hele button 56px under the text like Asukoht. Height follows the text. */
+.toit { background: var(--c-tume); color: var(--c-white); }
+.toit .canvas { height: auto; padding: 188px 0 170px 144px; }
+.toit__title { position: relative; }   /* above the absolute bar */
+.toit__text { width: 393px; margin: 63px 0 0 117px; text-box: trim-both cap alphabetic; }
+.toit__text p + p { margin-top: 1em; }
+.toit__nupp { margin: 56px 0 0 117px; }
+
 .asukoht { height: 720px; color: var(--c-white); }
 
 .asukoht__img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 0%; }
@@ -960,6 +970,9 @@ section { position: relative; overflow: clip; }
   .detail__tags { margin-top: 40px; }
   .hero--detail .hero__text { width: auto; top: auto; }   /* the desktop top:283 would otherwise shift it down */
   .mida, .partnerid { height: auto; }
+  .toit .canvas { padding: 96px var(--gutter); }
+  .toit__text { width: auto; max-width: 393px; margin: 40px 0 0 min(117px, 10vw); }
+  .toit__nupp { margin: 40px 0 0 min(117px, 10vw); }
   .mida .canvas, .partnerid .canvas { padding: 96px 0 96px var(--gutter); }
   .mida__title, .mida__text, .sobib, .partnerid__title, .partnerid__row { position: relative; left: auto; top: auto; right: auto; }
   .mida__title, .partnerid__title { padding-right: var(--gutter); width: auto; }

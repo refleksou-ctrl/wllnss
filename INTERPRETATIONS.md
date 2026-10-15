@@ -137,6 +137,14 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | Jooga hero fade | 0.5 instead of Figma 0.3: the description sat on the bright window light | Mine |
 | Figma (2026-10-14) | Round-4 photos in the card component (8 variants, same crops as the site, white text, 65% brown bottom fade) and the four detail hero PILT frames; Jooga hero fade layer 0.5 | Synced from the site |
 
+## Toitlustus section (client 2026-10-15)
+
+| What | Built | Source |
+|---|---|---|
+| Homepage section `#toitlustus` | New tume section between "Rohkem kui treening" and Asukoht: orange bar + "Toitlustus" title, client text (3 paragraphs, plain b1), hele "VAATA MENÜÜD" button. Layout copied from "Mida oodata?" (title x144/y188, text x261/y285, 393 wide); button 56px under the text like Asukoht. Height follows the text (766 at 1440) | Client text, layout mine — not in Figma |
+| Menu "Toitlustus" | Now scrolls to this section (was #) | Mine |
+| VAATA MENÜÜD | Links to # until the menu PDF arrives | Waiting for client |
+
 ## Motion (no motion spec in the file)
 
 | What | What I did |
@@ -191,7 +199,7 @@ the designer for mobile frames.
 
 - Figma (2026-10-14): client changes are in the file, but the new text (menu links in Menüüriba + Rippmenüü, homepage intro) is in **Inter** because the Figma tool can't load Atlas Grotesk. Layers are named "[Atlas Grotesk 16 / b1]"; Ken swaps the font. Old texts are hidden, not deleted.
 
-- Toitlustus menu link: where does it go (PDF or page)? Currently #.
+- Toitlustus: menu PDF for the "VAATA MENÜÜD" button (currently #). A café photo would make the section match the rest of the page.
 
 - Personaaltreening hero (personal_2): the client's head sits where the long orange title bar ends (bar to ~x654 at 1440, head from ~x630) and the room is white, so "Menüü" is faint. A crop with a bit more room on the left would clear it.
 
