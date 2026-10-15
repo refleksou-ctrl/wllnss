@@ -606,6 +606,9 @@ section { position: relative; overflow: clip; }
 .toit__title { position: relative; }   /* above the absolute bar */
 .toit__text { width: 393px; margin: 63px 0 0 117px; text-box: trim-both cap alphabetic; }
 .toit__text p + p { margin-top: 1em; }
+/* Slogan (Ken 2026-10-15): footer-title style — Stolzl H2 in hele on tume —
+   one sentence per line, 56px under the text */
+.toit__loosung { margin: 56px 0 0 117px; font-family: var(--font-display); font-weight: 500; font-size: var(--fs-h2); line-height: var(--lh-h2); color: var(--c-hele); text-box: trim-both cap alphabetic; }
 .toit__nupp { margin: 56px 0 0 117px; }
 
 .asukoht { height: 720px; color: var(--c-white); }
@@ -972,6 +975,7 @@ section { position: relative; overflow: clip; }
   .mida, .partnerid { height: auto; }
   .toit .canvas { padding: 96px var(--gutter); }
   .toit__text { width: auto; max-width: 393px; margin: 40px 0 0 min(117px, 10vw); }
+  .toit__loosung { margin: 40px 0 0 min(117px, 10vw); }
   .toit__nupp { margin: 40px 0 0 min(117px, 10vw); }
   .mida .canvas, .partnerid .canvas { padding: 96px 0 96px var(--gutter); }
   .mida__title, .mida__text, .sobib, .partnerid__title, .partnerid__row { position: relative; left: auto; top: auto; right: auto; }

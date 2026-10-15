@@ -141,7 +141,8 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 
 | What | Built | Source |
 |---|---|---|
-| Homepage section `#toitlustus` | New tume section between "Rohkem kui treening" and Asukoht: orange bar + "Toitlustus" title, client text (3 paragraphs, plain b1), hele "VAATA MENÜÜD" button. Layout copied from "Mida oodata?" (title x144/y188, text x261/y285, 393 wide); button 56px under the text like Asukoht. Height follows the text (766 at 1440) | Client text, layout mine — not in Figma |
+| Homepage section `#toitlustus` | New tume section between "Rohkem kui treening" and Asukoht: orange bar + "Toitlustus" title, client text (3 paragraphs, plain b1), hele "VAATA MENÜÜD" button. Layout copied from "Mida oodata?" (title x144/y188, text x261/y285, 393 wide); button 56px under the text like Asukoht. Height follows the text (914 at 1440 with the slogan) | Client text, layout mine — not in Figma |
+| Slogan "Hea toit. Hea energia. Hea enesetunne." | Between text and button, one sentence per line, footer-title style (Stolzl 32 / H2, hele) | Ken asked, style mine |
 | Menu "Toitlustus" | Now scrolls to this section (was #) | Mine |
 | VAATA MENÜÜD | Links to # until the menu PDF arrives | Waiting for client |
 
