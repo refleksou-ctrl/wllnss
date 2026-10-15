@@ -145,6 +145,7 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | Slogan "Hea toit. Hea energia. Hea enesetunne." | Between text and button, one sentence per line, footer-title style (Stolzl 32 / H2, hele) | Ken asked, style mine |
 | Menu "Toitlustus" | Now scrolls to this section (was #) | Mine |
 | VAATA MENÜÜD | Links to # until the menu PDF arrives | Waiting for client |
+| Figma (2026-10-15) | Section added to the homepage screen (frame "Toitlustus", 1440×912) between "rohkem kui treening" and "asukoht". Texts in Inter, layer names say the real font (Stolzl / Atlas); button is a detached Nupp hele with its old label hidden | Synced from the site; Ken swaps fonts |
 
 ## Motion (no motion spec in the file)
 
