@@ -1045,7 +1045,7 @@ section { position: relative; overflow: clip; }
   .viis--recover { left: calc(187 * var(--u)); top: calc(502 * var(--u)); }
   .viis--connect { left: calc(187 * var(--u)); top: calc(625.4 * var(--u)); }
   .laine, .laine[data-reveal] { display: none; }
-  .laine-m { display: block; position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; opacity: 0.6; stroke-linecap: butt; }
+  .laine-m { display: block; position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; stroke-linecap: butt; }   /* full orange like desktop (Ken) */
   .ftr__title { white-space: normal; }
   .koik__grid .ala { width: auto; height: 400px; }
   .sobib { padding: 28px var(--gutter) 28px 20px; width: 100%; }

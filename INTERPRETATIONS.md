@@ -153,7 +153,7 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 |---|---|---|
 | Tablets (701–1199) | Title, then the W on its own row, then the four words in two columns (MOVE + RESET left, RECOVER + CONNECT right). Nothing crosses the text | Mine |
 | W on tablets (701–1199) | The desktop W (middle 1440 of the 2816 line) scaled to the screen width, full strength, draws itself on | Mine |
-| Phones (≤ 700) | Ken's frame 5734:4405 built 1:1 at 375 and scaled with the screen width: title 48, words 32 (desktop sizes), MOVE + RESET left, RECOVER + CONNECT right and lower, Ken's redrawn line at 60% weaving between them | From the file |
+| Phones (≤ 700) | Ken's frame 5734:4405 built 1:1 at 375 and scaled with the screen width: title 48, words 32 (desktop sizes), MOVE + RESET left, RECOVER + CONNECT right and lower, Ken's redrawn line, full orange like desktop (Figma layer had 60%), weaving between them | From the file |
 
 ## Motion (no motion spec in the file)
 
