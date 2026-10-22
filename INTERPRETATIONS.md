@@ -147,6 +147,12 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | VAATA MENÜÜD | Links to # until the menu PDF arrives | Waiting for client |
 | Figma (2026-10-15) | Section added to the homepage screen (frame "Toitlustus", 1440×912) between "rohkem kui treening" and "asukoht". Texts in Inter, layer names say the real font (Stolzl / Atlas); button is a detached Nupp hele with its old label hidden | Synced from the site; Ken swaps fonts |
 
+## "Rohkem kui treening" W on phones (feedback 2026-10-22)
+
+| What | Built | Source |
+|---|---|---|
+| Orange W line, < 1200px | The whole desktop W (middle 1440 of the 2816 line) is scaled to the screen width and sits on its own row between the title and the four words, full strength, still draws itself on. Was: a full-size line behind the text at 60%, of which only a slice showed. Line 8 (tablet) / 16 (phone) units so it stays 4–5px on screen | Feedback; solution mine |
+
 ## Motion (no motion spec in the file)
 
 | What | What I did |

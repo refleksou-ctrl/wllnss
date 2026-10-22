@@ -951,13 +951,24 @@ section { position: relative; overflow: clip; }
   .rohkem .canvas {
     padding: 96px var(--gutter);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 64px 32px;
   }
   .rohkem__title, .viis { position: relative; left: auto; top: auto; }
   .rohkem__title { grid-column: 1 / -1; width: auto; }
   .viis { width: auto; }
-  .laine, .laine[data-reveal] { left: calc(50% - 1534px); top: 140px; z-index: 0; opacity: 0.6; }
+  /* The W (feedback 2026-10-22: on phones only a slice showed, it didn't read as a W).
+     Below 1200 the whole desktop W — the line's middle 1440 of 2816 — is scaled to the
+     screen width and sits on its own row between the title and the four words. */
+  .laine, .laine[data-reveal] {
+    position: relative; left: auto; top: auto; z-index: 0;
+    grid-column: 1 / -1; order: 1;
+    width: calc(100vw * 2816 / 1440);
+    height: calc(100vw * 677.432 / 1440);
+    margin-left: calc(-100vw * 814 / 1440 - var(--gutter));
+    stroke-width: 8;   /* the line scales down with the W; 8 keeps it ~5px at 1000 */
+  }
+  .viis { order: 2; }
   .rohkem__title, .viis { z-index: 1; }
 
   /* asukoht */
@@ -1012,7 +1023,8 @@ section { position: relative; overflow: clip; }
   .numbrid__num { font-size: 36px; }
   .numbrid__big { font-size: 56px; }
   .ala { width: 300px; height: 360px; padding: 32px 24px 24px; }
-  .rohkem .canvas { grid-template-columns: 1fr; gap: 48px; }
+  .rohkem .canvas { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  .laine, .laine[data-reveal] { stroke-width: 16; }   /* ~4px on a 375 phone */
   .ftr__title { white-space: normal; }
   .koik__grid .ala { width: auto; height: 400px; }
   .sobib { padding: 28px var(--gutter) 28px 20px; width: 100%; }
