@@ -593,6 +593,10 @@ section { position: relative; overflow: clip; }
   transition: stroke-dashoffset 2400ms var(--ease);
 }
 .laine.is-visible path { stroke-dashoffset: 0; }
+/* Phone W (feedback 2026-10-22) — hidden above 700, same stroke and draw-on as .laine */
+.laine-m { display: none; overflow: visible; fill: none; stroke: var(--c-orange); stroke-width: 5; stroke-linecap: round; }
+.laine-m path { stroke-dasharray: 1; stroke-dashoffset: -1; transition: stroke-dashoffset 2400ms var(--ease); }
+.laine-m.is-visible path { stroke-dashoffset: 0; }
 
 /* ============================================================
    ASUKOHT (2:289)
@@ -880,7 +884,7 @@ section { position: relative; overflow: clip; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   [data-reveal], .bar[data-reveal] { opacity: 1; transform: none; transition: none; }
-  .laine path { stroke-dashoffset: 0; transition: none; }
+  .laine path, .laine-m path { stroke-dashoffset: 0; transition: none; }
   .ticker__track { animation: none; }
   .slider__track { scroll-behavior: auto; }
 }
@@ -957,18 +961,24 @@ section { position: relative; overflow: clip; }
   .rohkem__title, .viis { position: relative; left: auto; top: auto; }
   .rohkem__title { grid-column: 1 / -1; width: auto; }
   .viis { width: auto; }
-  /* The W (feedback 2026-10-22: on phones only a slice showed, it didn't read as a W).
-     Below 1200 the whole desktop W — the line's middle 1440 of 2816 — is scaled to the
-     screen width and sits on its own row between the title and the four words. */
+  /* The W (feedback 2026-10-22: below 1200 only a slice of the line showed and it didn't
+     read as a W). Now: title, then the W on its own row, then the four words in two
+     columns (MOVE + RESET left, RECOVER + CONNECT right, like desktop). Tablets show the
+     desktop W (the line's middle 1440 of 2816) scaled to the screen width; phones get a
+     redrawn W (.laine-m) shaped for a narrow screen. */
+  .rohkem__title { grid-row: 1; }
+  .viis--move    { grid-area: 3 / 1; }
+  .viis--reset   { grid-area: 4 / 1; }
+  .viis--recover { grid-area: 3 / 2; }
+  .viis--connect { grid-area: 4 / 2; }
   .laine, .laine[data-reveal] {
     position: relative; left: auto; top: auto; z-index: 0;
-    grid-column: 1 / -1; order: 1;
+    grid-area: 2 / 1 / 3 / -1;
     width: calc(100vw * 2816 / 1440);
     height: calc(100vw * 677.432 / 1440);
     margin-left: calc(-100vw * 814 / 1440 - var(--gutter));
-    stroke-width: 8;   /* the line scales down with the W; 8 keeps it ~5px at 1000 */
+    stroke-width: 8;   /* scales down with the W; ~5px on screen at 1000 */
   }
-  .viis { order: 2; }
   .rohkem__title, .viis { z-index: 1; }
 
   /* asukoht */
@@ -1023,8 +1033,9 @@ section { position: relative; overflow: clip; }
   .numbrid__num { font-size: 36px; }
   .numbrid__big { font-size: 56px; }
   .ala { width: 300px; height: 360px; padding: 32px 24px 24px; }
-  .rohkem .canvas { grid-template-columns: minmax(0, 1fr); gap: 48px; }
-  .laine, .laine[data-reveal] { stroke-width: 16; }   /* ~4px on a 375 phone */
+  .rohkem .canvas { gap: 40px 16px; }
+  .laine, .laine[data-reveal] { display: none; }
+  .laine-m { display: block; grid-area: 2 / 1 / 3 / -1; width: 100vw; max-width: none; height: auto; margin-left: calc(-1 * var(--gutter)); }
   .ftr__title { white-space: normal; }
   .koik__grid .ala { width: auto; height: 400px; }
   .sobib { padding: 28px var(--gutter) 28px 20px; width: 100%; }
