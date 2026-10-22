@@ -1033,9 +1033,19 @@ section { position: relative; overflow: clip; }
   .numbrid__num { font-size: 36px; }
   .numbrid__big { font-size: 56px; }
   .ala { width: 300px; height: 360px; padding: 32px 24px 24px; }
-  .rohkem .canvas { gap: 40px 16px; }
+  /* Phones: Ken's frame 5734:4405, 375 x 743, built 1:1 at 375 and scaled with the
+     screen width (--u = one Figma px). Desktop type sizes: title 48, words 32. */
+  .rohkem { --u: calc(100vw / 375); }
+  .rohkem .canvas { display: block; height: calc(743 * var(--u)); padding: 0; }
+  .rohkem__title { position: absolute; left: calc(20 * var(--u)); top: calc(96 * var(--u)); font-size: 48px; line-height: 1.1; }
+  .viis { position: absolute; }
+  .viis__title { font-size: 32px; }
+  .viis--move    { left: calc(20 * var(--u));  top: calc(251 * var(--u)); }
+  .viis--reset   { left: calc(20 * var(--u));  top: calc(374.4 * var(--u)); }
+  .viis--recover { left: calc(187 * var(--u)); top: calc(502 * var(--u)); }
+  .viis--connect { left: calc(187 * var(--u)); top: calc(625.4 * var(--u)); }
   .laine, .laine[data-reveal] { display: none; }
-  .laine-m { display: block; grid-area: 2 / 1 / 3 / -1; width: 100vw; max-width: none; height: auto; margin-left: calc(-1 * var(--gutter)); }
+  .laine-m { display: block; position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; opacity: 0.6; stroke-linecap: butt; }
   .ftr__title { white-space: normal; }
   .koik__grid .ala { width: auto; height: 400px; }
   .sobib { padding: 28px var(--gutter) 28px 20px; width: 100%; }
