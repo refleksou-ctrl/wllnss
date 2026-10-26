@@ -155,6 +155,12 @@ dropdown links, the scrolled bar colour rgba(245,245,244,0.9) and the light drop
 | W on tablets (701–1199) | The desktop W (middle 1440 of the 2816 line) scaled to the screen width, full strength, draws itself on | Mine |
 | Phones (≤ 700) | Ken's frame 5734:4405 built 1:1 at 375 and scaled with the screen width: title 48, words 32 (desktop sizes), MOVE + RESET left, RECOVER + CONNECT right and lower, Ken's redrawn line, full orange like desktop (Figma layer had 60%), weaving between them | From the file |
 
+## Floor plans button (client 2026-10-26)
+
+| What | Built | Source |
+|---|---|---|
+| "VAATA KORRUSEPLAANE" in Asukoht | Second button next to "VAATA ASUKOHTA KAARDIL": see-through, white text + 1px white outline (plain white text was too faint on the grey wall). Wraps under the map button on phones. Links to # until Ken's floor plan PDF (1. + 2. korrus) is ready | Client asked for a button; wording and style mine |
+
 ## Motion (no motion spec in the file)
 
 | What | What I did |
@@ -206,6 +212,8 @@ the designer for mobile frames.
   few px lower.
 
 ## Open questions
+
+- Floor plans: PDF still being made (Ken). Client to confirm street names (esp. next to Stuudio 1–2), the unreadable note by Teenindus/Trepikoda, what "Liftihall" is called without lifts, and whether to show m².
 
 - Figma (2026-10-14): client changes are in the file, but the new text (menu links in Menüüriba + Rippmenüü, homepage intro) is in **Inter** because the Figma tool can't load Atlas Grotesk. Layers are named "[Atlas Grotesk 16 / b1]"; Ken swaps the font. Old texts are hidden, not deleted.
 
